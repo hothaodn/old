@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị các số nguyên tố đầu tiên</title>
+</head>
+<body>
+    <script>
+        //2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 ...
+        //Bài tập: Hiển thị các số nguyên tố đầu tiên
+
+        let soNguyen = 2;
+
+        // kiểm tra có phải số nguyên tố
+        // tính chất số nguyên tố: số 2, và các số n chỉ có ước số là 1 và chính nó (ko chia hết cho 2, ko chia hết cho số trong khoảng n-1
+        // căn bậc 2 của n sẽ làm rút gọn lại các bước tính giới hạn của (n-1)
+        function checkSoNguyenTo () {
+            if (soNguyen === 2) {
+                return true; //return là câu lệnh trả về kết quả khi function thực hiện tính toán
+            } else if (soNguyen % 2 === 0) {
+                return false; //trả kết quả ko là số nguyên tố
+            } else{
+                for ( let i = 3; i < Math.sqrt(soNguyen); i++){
+                    if (soNguyen % i === 0){
+                        return false;
+                        //break;
+                    }
+                }
+            }
+            return true; // hàm này trả về kết quả khi số nguyên là số nguyên tố
+        }
+
+        // đếm số lần hiển thị số nguyên tố
+        let soLanInSoNguyenTo = parseInt(prompt ("Bạn muốn in bao nhiêu số NGUYÊN TỐ đầu tiên trong dãy?"));
+        let count = 0; //biến dùng để đếm số lần hiển thị số nguyên tố
+        let chuoiSoNguyenTo = "";
+
+        while ( count < soLanInSoNguyenTo){
+            //call hàm check nếu là số nguyên tố thì thực hiện tính toán
+            if(checkSoNguyenTo(soNguyen)){
+                chuoiSoNguyenTo += soNguyen + " -- ";
+                count++ ;
+            }
+            soNguyen++;
+        }
+        alert ( "Hiển thị " + soLanInSoNguyenTo + " số nguyên tố đầu tiên: " + chuoiSoNguyenTo);
+
+    </script>
+</body>
+</html>

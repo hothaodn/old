@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cat catch rat</title>
+</head>
+<body>
+    <button onclick="start()" style="position:relative;left:400px; top: 100px">START</button>
+    <button onclick="restart()" style="position:relative;left:400px; top: 100px">RESTART</button>
+
+    <canvas width="1000" height="50" style="border: dashed" ></canvas>
+    <div id="cat"></div>
+    <div id="rat"></div>
+    <div id="result" style="position:relative;left:380px; top: 130px" >Số chuột đã bắt được: . Cân nặng của mèo: </div>
+
+    <script>
+        /*Có thuộc tính tên.
+        Có thuộc tính khối lượng.
+        Có thuộc tính tốc độ.
+        Có thuộc tính mô tả trạng thái: sống, chết.
+        Có khả năng thực hiện hành vi kêu (ví dụ “chít, chít”)*/
+        //<img src="" style="position:absolute; top: 50px; left: 20px"/>
+        class Rat{
+            constructor(name,weight,speed,status,sound) {
+                this.name = name;
+                this.weight = weight;
+                this.speed = speed;
+                this.status = true;
+                this.sound = sound;
+                //this.left = 100;
+            };
+            display(){
+                return '<img width="50" src="https://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/256/22250-mouse-icon.png"' +
+                    ' style="top:30px; left:'+this.speed+'px;position:absolute;" />';
+            }
+            run(){
+                this.speed += (Math.random())*50+30;
+            };
+            say(){
+                return this.sound;
+            };
+        };
+        class Cat{
+            constructor(name,weight,speed,status,sound) {
+                this.name = name;
+                this.weight = weight;
+                this.speed = speed;
+                this.status = true;
+                this.sound = sound;
+                //this.left = 0;
+            };
+            display(){
+                return '<img width="60" src="https://pluspng.com/img-png/png-doraemon-doraemon-new-png-images-411.png"' +
+                    ' style="top:10px; left:'+this.speed+'px;position:absolute;" />';
+            };
+            run(){
+                this.speed += (Math.random())*50+30;
+            };
+            eat(mouse){
+                document.getElementById("rat").src = "";
+                this.weight += mouse.weight;
+            };
+            say(){
+                return this.sound;
+            };
+        };
+        let doraemon = new Cat("Doraemon", 10, 0, true,"meo meowww");
+        let jerry = new Rat("Jerry", 5,50,true, "chit chit");
+
+        let countWin = 0;
+        function checkWin() {
+            document.getElementById("result").innerHTML = "Số chuột đã bắt được: " + countWin + ". Cân nặng của mèo: " + doraemon.weight;
+            if ( doraemon.speed > jerry.speed ){
+                alert("Catched it!!");
+                doraemon.eat(jerry);
+                countWin++;
+                doraemon.speed = 0;
+                jerry.speed = 0;
+            }
+        }
+        function start() {
+            document.getElementById("rat").innerHTML = jerry.display();
+            document.getElementById("cat").innerHTML = doraemon.display();
+            if (jerry.speed < window.innerWidth && doraemon.speed < window.innerWidth){
+                doraemon.run();
+                jerry.run();
+                checkWin();
+            }
+            setTimeout(start, 500);
+        }
+
+        function restart(){
+            doraemon.speed = 0;
+            jerry.speed = 80;
+            document.getElementById("rat").innerHTML = jerry.display();
+            document.getElementById("cat").innerHTML = doraemon.display();
+        }
+
+
+    </script>
+</body>
+</html>

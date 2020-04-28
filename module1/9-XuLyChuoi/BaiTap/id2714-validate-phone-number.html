@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*Viết phương thức để kiểm tra tính hợp lệ của số điên thoại.
+        Số điện thoại hợp lệ cần đạt theo mẫu sau: (xx)-(0xxxxxxxxx)
+        x là ký tự số
+        Không chứa các ký tự đặc biệt
+        Ví dụ số điện thoại hợp lệ: (84)-(0978489648)
+        Ví dụ tên lớp không hợp lệ: (a8)-(22222222)*/
+        function isValidPhoneNumber(number) {
+            let patt = /^\([0-9]{2}\)-\([0-9]{10}\)$/;
+            if ( patt.test(number)){
+                alert( number + " is valid phone number");
+            }else{
+                alert( number + " is invalid phone number");
+            }
+        }
+        isValidPhoneNumber('(84)-(0978489648)');
+        isValidPhoneNumber('(a8)-(22222222)');
+        isValidPhoneNumber('(84)--(093512312a)');
+        isValidPhoneNumber('(84)-((0978489648)');
+    </script>
+</body>
+</html>

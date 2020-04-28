@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faking Textarea</title>
+</head>
+<body style="text-align: center">
+    <h1 style="color: green">TYPE ANYTHING SLOWLY</h1>
+    <textarea id="textArea" rows="10" cols="80" onkeyup="increaseSpeed()"></textarea><br/>
+
+    <script>
+        let a = new Array();
+        a[1] = 'T'; a[2] = 'Ô'; a[3] = 'I'; a[4] = ' '; a[5] = 'L'; a[6] = 'À'; a[7] = ' '; a[8] = 'M'; a[9] = 'Ộ'; a[10] = 'T'; a[11] = ' '; a[12] = 'Đ'; a[13] = 'Ứ'; a[14] = 'A'; a[15] = ' '; a[16] = 'N'; a[17] = 'G'; a[18] = 'Ố'; a[19] = 'C'; a[20] = '!'; a[21] = '!'; a[22] = '!';
+        function writeText() {
+            let text = document.getElementById("textArea");
+            let length = text.value.length;
+            text.value = "";
+            for (let i = 1; i <= length; i++) {
+                text.value += a[i]
+                if (length === 22) {
+                    text.value = "";
+                }
+            }
+            setTimeout(writeText,1)
+        }
+
+        function increaseSpeed (){
+            setTimeout( writeText, 1 );
+        }
+    </script>
+</body>
+</html>

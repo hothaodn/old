@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Req 5 - Done</title>
+    <style>
+        table, th, td { color:black; font-weight: bold;border: 1px solid orangered;border-collapse: collapse;text-align: center}
+        fieldset { text-align: center; border-style: dashed; background-color: white; opacity: 0.8; margin: 30px; }
+        body {
+            background-image: url("https://furamavillasdanang.com/wp-content/uploads/2016/10/Furama_Villas_Central_Pool.jpg");no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover; background-size: cover;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!--===============================REQUIREMENT 5 - task1.1===============================-->
+    <img src="http://www.dongkhoitravel.com.vn/upload/product/furamresort-3272.png" width="150px" />
+    <fieldset >
+        <legend><h1 style="color:orangered">GUEST MANAGEMENT</h1></legend>
+        <button onclick="displaymenuFormAddCustomer()"><b>Add New Customer</b><img src="https://icons.iconarchive.com/icons/aha-soft/people/256/user-group-icon.png" width="40"  /></button>
+        <button onclick="displayCustomer()"><b>Display Information Customer</b><img src="https://icons.iconarchive.com/icons/aha-soft/people/256/user-group-icon.png" width="40"  /></button>
+        <button onclick="displaymenuFormEditCustomer()"><b>Edit Information Customer</b><img src="https://icons.iconarchive.com/icons/aha-soft/people/256/user-group-icon.png" width="40"  /></button>
+        <button onclick="deleteCustomer()"><b>Delete Customer</b><img src="https://icons.iconarchive.com/icons/aha-soft/people/256/user-group-icon.png" width="40"  /></button>
+        <button onclick="exitMenu()"><img src="https://www.freepngimg.com/thumb/exit/7-2-exit-png-image.png" width="120"  /></button><br/><br/>
+        <span id="menuFormAddCustomer" ></span>
+        <center><span id="displaylist" ></span></center>
+    </fieldset>
+
+    <script>
+        // ===============================REQUIREMENT 5 - task1.2===============================
+        let arrListCustomers = [];
+        let menuFormAddCustomer = '<input type="text" id="fullName" placeholder="Full Name" /><br/>'
+            +'<input type="text" id="idNumber" placeholder="ID number" /><br/>'
+            +'<input type="text" id="dateOfBirth" placeholder="Date of Bỉrthday" /><br/>'
+            +'<input type="email" id="email" placeholder="Email" /><br/>'
+            +'<input type="text" id="address" placeholder="Address" /><br/>'
+            +'<input type="text" id="typeCustomer" placeholder="Customer Type" /><br/>'
+            +'<input type="number" id="numGuest" placeholder="Number of Guests" /><br/>'
+            +'<input type="number" id="numNight" placeholder="Number of Nights" /><br/>'
+            +'<input type="text" id="typeRoom" placeholder="Type of Room" /><br/>'
+            +'<input type="text" id="typeService" placeholder="Type of Service" /><br/>';
+        function displaymenuFormAddCustomer() {
+                document.getElementById("menuFormAddCustomer").innerHTML = menuFormAddCustomer + '<button onclick="addNewCustomer()" >Save</button>';
+        }
+        function addNewCustomer() {
+            let perCustomer = [];
+            perCustomer.push(document.getElementById("fullName").value);
+            perCustomer.push(document.getElementById("idNumber").value);
+            perCustomer.push(document.getElementById("dateOfBirth").value);
+            perCustomer.push(document.getElementById("email").value);
+            perCustomer.push(document.getElementById("address").value);
+            perCustomer.push(document.getElementById("typeCustomer").value);
+            perCustomer.push(document.getElementById("numGuest").value);
+            perCustomer.push(document.getElementById("numNight").value);
+            perCustomer.push(document.getElementById("typeRoom").value);
+            perCustomer.push(document.getElementById("typeService").value);
+            arrListCustomers.push(perCustomer);
+            alert ("Just saved new customer: " + perCustomer[0]);
+            displaymenuFormAddCustomer();
+            displayCustomer();
+        }
+        // ===============================REQUIREMENT 5 - task1.3===============================
+        function displayCustomer() {
+            let chart = "<table><tr>"
+                +"<td>No.</td>"
+                +"<td>Name</td>"
+                +"<td>ID number</td>"
+                +"<td>Date of Bỉrthday</td>"
+                +"<td>Email</td>"
+                +"<td>Address</td>"
+                +"<td>Customer Type</td>"
+                +"<td>No. of Guests</td>"
+                +"<td>No. of Nights</td>"
+                +"<td>Type of Room</td>"
+                +"<td>Type of Service</td></tr>";
+            for ( let i = 0; i < arrListCustomers.length; i++) {
+                chart += "<tr>" + "<td>" + i + "</td>";
+                for (let j = 0; j < arrListCustomers[i].length; j++) {
+                    chart +="<td>"+ arrListCustomers[i][j] +"</td>";
+                }
+                chart += "<td><button onclick='displaymenuFormEditCustomer("+ i+ ")'>Edit</button>"
+                        +"<button onclick='deleteCustomer("+ i+ ")'>Delete</button></td>"+"</tr>";
+            }
+            chart += "</table>";
+            document.getElementById("displaylist").innerHTML = chart;
+        }
+        // ===============================REQUIREMENT 5 - task1.4===============================
+        function displaymenuFormEditCustomer(i){
+            displayCustomer();
+            document.getElementById("menuFormAddCustomer").innerHTML = menuFormAddCustomer + '<button onclick="editCustomer('+i+')" >Save</button>';
+            //display current info
+            document.getElementById("fullName").value = arrListCustomers[i][0];
+            document.getElementById("idNumber").value = arrListCustomers[i][1];
+            document.getElementById("dateOfBirth").value = arrListCustomers[i][2];
+            document.getElementById("email").value = arrListCustomers[i][3];
+            document.getElementById("address").value = arrListCustomers[i][4];
+            document.getElementById("typeCustomer").value = arrListCustomers[i][5];
+            document.getElementById("numGuest").value = arrListCustomers[i][6];
+            document.getElementById("numNight").value = arrListCustomers[i][7];
+            document.getElementById("typeRoom").value = arrListCustomers[i][8];
+            document.getElementById("typeService").value = arrListCustomers[i][9];
+        }
+        function editCustomer(i) {
+            arrListCustomers[i][0] = document.getElementById("fullName").value;
+            arrListCustomers[i][1] = document.getElementById("idNumber").value;
+            arrListCustomers[i][2] = document.getElementById("dateOfBirth").value;
+            arrListCustomers[i][3] = document.getElementById("email").value;
+            arrListCustomers[i][4] = document.getElementById("address").value;
+            arrListCustomers[i][5] = document.getElementById("typeCustomer").value;
+            arrListCustomers[i][6] = document.getElementById("numGuest").value;
+            arrListCustomers[i][7] = document.getElementById("numNight").value;
+            arrListCustomers[i][8] = document.getElementById("typeRoom").value;
+            arrListCustomers[i][9] = document.getElementById("typeService").value;
+            displayCustomer();
+        }
+        // ===============================REQUIREMENT 5 - task1.5===============================
+        function deleteCustomer(i) {
+            displayCustomer();
+            if (confirm("Are you sure to delete the guest " + arrListCustomers[i][0] + "?")){
+                arrListCustomers.splice(i,1);
+            }
+            displayCustomer();
+        }
+        // =====================================================================================
+        function exitMenu() {
+            document.getElementById("displaylist").innerHTML = "";
+            document.getElementById("menuFormAddCustomer").innerHTML = "";
+        }
+        arrListCustomers.push(["Mỹ Tâm","123456789","01/01/aaaa","mytam@abc.abc","Saigon","VIP",2,2,"Villa","VIP"]);
+        arrListCustomers.push(["Đàm Vĩnh Hưng","2233445566","01/bb/aaaa","vhung@abc.abc","Saigon","Platinum",1,2,"Villa","VIP"]);
+        arrListCustomers.push(["Vũ Cát Tường","123123123","01/01/bbbb","cattuong@abc.abc","Saigon","Platinum",1,2,"House","Business"]);
+        arrListCustomers.push(["Bảo Thy","123123123","ss/ss/ssss","thuyloan@abc.abc","Saigon","Platinum",1,2,"Villa","Business"]);
+        arrListCustomers.push(["Hồ Ngọc Hà","123123123","01/01/bbbb","haho@abc.abc","Saigon","VIP",1,2,"House","Business"]);
+    </script>
+
+</body>
+</html>

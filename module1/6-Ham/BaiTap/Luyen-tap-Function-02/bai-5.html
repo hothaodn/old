@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 5: Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị nhỏ nhất.
+        let so1 = parseFloat(prompt( "Nhập số nguyên thứ 1:" ));
+        let so2 = parseFloat(prompt( "Nhập số nguyên thứ 2:" ));
+        let so3 = parseFloat(prompt( "Nhập số nguyên thứ 3:" ));
+        alert (so1 + " " + so2 + " " + so3 + " Min là: " + kiemTraMin() );
+
+        function kiemTraMin() {
+            let min = so1;
+            if ( Number.isInteger(so1) === false || Number.isInteger(so2) === false || Number.isInteger(so2) === false){
+                return "Vui lòng nhập vào số nguyên";
+            } else if ( so2 < min ){
+                min = so2;
+            } else if ( so3 < min){
+                min = so3;
+            }
+            return min;
+        }
+    </script>
+</body>
+</html>

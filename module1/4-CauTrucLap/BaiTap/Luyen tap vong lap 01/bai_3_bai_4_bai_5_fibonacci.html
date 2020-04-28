@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập vòng lặp 01</title>
+</head>
+<body>
+
+    <script>
+        //Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên. 0 i , 1 j, fibo 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
+        //Bài 5: Tính tổng của 20 số đầu tiên trong dãy fibonacci.
+
+        let i = 0;
+        let j = 1;
+        let fibo = null;
+        let soThuTu = 1;
+        let tinhTong = null;
+        document.write ( i + "<br/>"); //số đầu tiên trong dãy fibo
+
+        do {
+            fibo = i + j;
+            document.write ( fibo + "<br/>");
+            tinhTong += fibo; // tính tổng dãy số
+            i = j; //gán số trước cho số sau
+            j = fibo; //gán số trước cho số sau
+
+            soThuTu++ ;
+        } while ( soThuTu <= 20);
+        document.write( "Dãy 20 số fibonacci đầu tiên có tổng là: " + tinhTong + "<br/>");
+
+        //Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.
+        let fiboDauTienChiaHet5 = ( 0 + 1 )* 5;
+        document.write( "Số đầu tiên trong dãy fibonacci chia hết cho 5 là: " + fiboDauTienChiaHet5);
+
+    </script>
+</body>
+</html>

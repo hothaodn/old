@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo ngược các phần tử trong mảng đó.</p>
+    <input type="number" id="soNguyen" />
+    <button onclick="nhapSo()" >Thêm phần tử trong mảng</button>
+    <button onclick="hienThiMang()" >Hiển thị mảng</button>
+    <button onclick="daoNguoc()" >Đảo ngược mảng</button>
+
+    <p id="mang1"></p>
+    <p id="mang2"></p>
+
+    <script>
+        let mangBai3 = [];
+
+        function nhapSo() {
+            let soNguyen = document.getElementById("soNguyen").value ;
+            mangBai3.push(soNguyen);
+            document.getElementById("soNguyen").value = "";
+        }
+
+        function hienThiMang() {
+            document.getElementById("mang1").innerHTML = mangBai3.join(" - ");
+        }
+
+        function daoNguoc() {
+            document.getElementById("mang2").innerHTML = "Mảng sau khi đảo ngược: " + mangBai3.reverse().join(" - ");
+        }
+
+    </script>
+</body>
+</html>

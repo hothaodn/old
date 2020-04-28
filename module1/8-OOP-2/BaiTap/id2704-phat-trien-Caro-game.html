@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="color: darkblue; text-align: center;background-color: burlywood">
+    <h1>CARO GAME</h1>
+    <button onclick="CoCaro.startGame()">START GAME</button>
+    <div id="board"></div>
+
+<script>
+    /*Phát triển trò chơi cờ Ca-ro với các tính năng đơn giản được mô tả như sau:
+    Hiển thị bàn cờ với 20 dòng và 20 cột
+    Có 2 người chơi
+    Khi nhấn vào các ô còn trống thì lần lượt hiện lên dấu 'X' hoặc 'O' tuỳ theo lượt của người chơi
+    Nếu có 5 ô liền nhau là X hoặc O thì người chơi sở hữu hàng đó sẽ thắng
+    Các hàng có thể là ngang, dọc hoặc chéo */
+    class CaroGame {
+        constructor(nameOfUser,numberOfCell) {
+            this.numberOfCell = numberOfCell;
+            this.nameOfUser = nameOfUser
+        }
+        makeCaroBoard (){
+            this.caroBoard = new Array(this.numberOfCell);
+            for (let a = 0; a < this.caroBoard.length; a++ ){
+                this.caroBoard[a] = new Array(this.numberOfCell);
+                for ( let b = 0; b < this.caroBoard[a].length; b++ ){
+                    this.caroBoard[a][b] = "<button onclick='"+ this.nameOfUser +".playXO(" +a+","+b + ")'>_.</button>";
+                }
+            }
+        };
+        displayCaroBoard (){
+            document.getElementById("board").innerHTML = this.caroBoard.join("<br/>");
+        };
+        startGame(){
+            alert ("Hello " + this.nameOfUser + "! Ready!!");
+            this.makeCaroBoard();
+            this.displayCaroBoard();
+        };
+        checkWinner(){
+            this.X = "<button>X.</button>";
+            this.O = "<button>O</button>";
+            for (let a = 0; a < this.caroBoard.length ; a++){
+                for ( let b = 0; b < this.caroBoard[a].length; b++ ){
+                    //ngang
+                    if(this.caroBoard[a][b] === this.X && this.caroBoard[a][b+1] === this.X && this.caroBoard[a][b+2] === this.X
+                        && this.caroBoard[a][b+3] === this.X && this.caroBoard[a][b+4] === this.X ){
+                        alert ("X win !");
+                    } else if(this.caroBoard[a][b] === this.O && this.caroBoard[a][b+1] === this.O && this.caroBoard[a][b+2] === this.O
+                        && this.caroBoard[a][b+3] === this.O && this.caroBoard[a][b+4] === this.O ) {
+                        alert("O win !");
+                    //dọc
+                    } else if(this.caroBoard[a][b] === this.X && this.caroBoard[a+1][b] === this.X && this.caroBoard[a+2][b] === this.X
+                        && this.caroBoard[a+3][b] === this.X && this.caroBoard[a+4][b] === this.X ){
+                        alert ("X win !");
+                    }else if(this.caroBoard[a][b] === this.O && this.caroBoard[a+1][b] === this.O && this.caroBoard[a+2][b] === this.O
+                        && this.caroBoard[a+3][b] === this.O && this.caroBoard[a+4][b] === this.O ){
+                        alert ("O win !");
+                    //hàng \
+                    } else if(this.caroBoard[a][b] === this.X && this.caroBoard[a+1][b+1] === this.X && this.caroBoard[a+2][b+2] === this.X
+                        && this.caroBoard[a+3][b+3] === this.X && this.caroBoard[a+4][b+4] === this.X ){
+                        alert ("X win !");
+                    }else if(this.caroBoard[a][b] === this.O && this.caroBoard[a+1][b+1] === this.O && this.caroBoard[a+2][b+2] === this.O
+                        && this.caroBoard[a+3][b+3] === this.O && this.caroBoard[a+4][b+4] === this.O ){
+                        alert ("O win !");
+                    // hàng /
+                    }else if(this.caroBoard[a][b] === this.X && this.caroBoard[a-1][b+1] === this.X && this.caroBoard[a-2][b+2] === this.X
+                        && this.caroBoard[a-3][b+3] === this.X && this.caroBoard[a-4][b+4] === this.X ){
+                        alert ("X win !");
+                    }else if(this.caroBoard[a][b] === this.O && this.caroBoard[a-1][b+1] === this.O && this.caroBoard[a-2][b+2] === this.O
+                        && this.caroBoard[a-3][b+3] === this.O && this.caroBoard[a-4][b+4] === this.O ){
+                        alert ("O win !");
+                    }
+                }
+            }
+        };
+    };
+    class Player {
+        constructor(gameName) {
+            this.CaroGame = gameName;
+            this.turn = 0;
+        };
+        playXO(i,j) {
+            document.getElementById("board").innerHTML = "";
+            if ( this.turn % 2 === 0){
+                this.CaroGame.caroBoard[i][j] = "<button>X.</button>";
+            } else {
+                this.CaroGame.caroBoard[i][j] = "<button>O</button>";
+            }
+            this.CaroGame.displayCaroBoard ();
+            this.turn++;
+            this.CaroGame.checkWinner();
+        };
+    };
+    let CoCaro = new CaroGame("Katy",12);
+    let Katy = new Player (CoCaro);
+</script>
+</body>
+</html>

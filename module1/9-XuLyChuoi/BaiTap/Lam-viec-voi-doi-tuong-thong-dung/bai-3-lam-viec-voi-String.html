@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*Bước 1: Cho sẵn chuỗi như sau: "Tôi yêu ngôn ngữ lập trình Javascript".
+        Hãy đếm số lần xuất hiện của chữ 'a' ở trong chuỗi trên.
+        Bước 2: Tách chuỗi
+        Hãy tách chuỗi trên vào trong một mảng các chuỗi. Mỗi từ là một phần từ.
+        Bước 3: Đếm số lượng từ có trong chuỗi trên.
+        Bước 4: Hãy thay thế chữ 'Javascript' bằng chữ 'Typescript'*/
+
+        let patt = /[a]/g;
+        let str = "HAlo! Tôi yêu ngôn ngữ lập trình Javascript";
+        document.write(str);
+        document.write("<br/>Số lần xuất hiện của chữ 'a' ở trong chuỗi: " + str.match(patt).length );
+
+        let arr = str.split(" ");
+        document.write("<br/>Sau khi tách: " + arr);
+        document.write("<br/>Số lượng từ có trong chuỗi trên: " + arr.length );
+
+        let new_str = str.replace('Javascript','Typescript');
+        document.write("<br/>Sau khi thế chữ: " + new_str);
+
+    </script>
+</body>
+</html>

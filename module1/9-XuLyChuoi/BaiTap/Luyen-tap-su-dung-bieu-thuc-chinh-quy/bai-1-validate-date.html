@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 1: Kiểm tra chuỗi đưa vào có đúng dạng dd/mm/yyyy
+        function isValidDate(date) {
+            let patt1 = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[12])\/[0-9]{3}[1-9]$/;
+            if ( patt1.test(date)){
+                alert( date + " is valid date");
+            }else{
+                alert( date + " is invalid date");
+            }
+        }
+        isValidDate('32/19/1989');
+        isValidDate('31/12/1999');
+        isValidDate('31/12/0000');
+        isValidDate('31/12/0001');
+        isValidDate('00/01/2019');
+        isValidDate('09/00/2019');
+        isValidDate('3/2/2020');
+        isValidDate('11/1a/123');
+        isValidDate('32/19/19899');
+        isValidDate('132/19/1989');
+    </script>
+</body>
+</html>

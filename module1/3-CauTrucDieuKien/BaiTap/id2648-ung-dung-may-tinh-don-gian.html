@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính đơn giản</title>
+    <style>
+        button{ background-color: orange}
+    </style>
+</head>
+<body>
+
+        <input type="text" id="hienThi">
+        <br/>
+        <br/>
+        <button onclick="nhapso('1')" >1</button>
+        <button onclick="nhapso('2')">2</button>
+        <button onclick="nhapso('3')">3</button>
+        <button onclick="nhapso('+')">+</button>
+
+        <br/>
+        <br/>
+        <button onclick="nhapso('4')">4</button>
+        <button onclick="nhapso('5')">5</button>
+        <button onclick="nhapso('6')">6</button>
+        <button onclick="nhapso('-')">-</button>
+
+        <br/>
+        <br/>
+        <button onclick="nhapso('7')">7</button>
+        <button onclick="nhapso('8')">8</button>
+        <button onclick="nhapso('9')">9</button>
+        <button onclick="nhapso('*')">x</button>
+
+        <br/>
+        <br/>
+        <button onclick="nutReset()">C</button>
+        <button onclick="nhapso('0')">0</button>
+        <button onclick="tinhKetQua()">=</button>
+        <button onclick="nhapso('/')">/</button>
+        <button onclick="nhapso('**')">^</button>
+
+    <script>
+
+        var chuoiSo = "";
+        let bieuThuc = document.getElementById("hienThi");
+
+        // thao tac nhap so dem
+        function nhapso(so) {
+            chuoiSo += so;
+            bieuThuc.value = chuoiSo;
+        }
+
+        // tinh ket qua
+        function tinhKetQua() {
+            bieuThuc.value = eval(bieuThuc.value);
+        }
+
+        //reset
+        function nutReset(){
+            chuoiSo = bieuThuc.value = "";
+        }
+
+    </script>
+</body>
+</html>

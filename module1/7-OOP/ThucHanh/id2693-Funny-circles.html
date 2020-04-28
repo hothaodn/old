@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button onclick="createMultipleCircle()"><h1>CLICK HERE</h1></button>
+    <canvas id="paper" width="1100" height="500" style="border: dashed"  ></canvas>
+
+    <script>
+        let Circle = function(x,y,radius){
+            this.toaDoX = x;
+            this.toaDoY = y;
+            this.radius = radius;
+        };
+
+        function colorRandom() {
+            let red = Math.floor(Math.random()*255);
+            let green = Math.floor(Math.random()*255);
+            let blue = Math.floor(Math.random()*255);
+            return "rgb(" + red + "," + green + "," + blue +")";
+        }
+
+        function funny() {
+            let ctx = document.getElementById("paper").getContext("2d");
+            let radius = Math.floor(Math.random()*100+10);
+            let x = Math.random() * window.innerWidth;
+            let y = Math.random() * window.innerHeight;
+            let hinhTron = new Circle(x,y,radius);
+            ctx.beginPath();
+
+            ctx.arc(hinhTron.toaDoX, hinhTron.toaDoY, hinhTron.radius,0, 2 * Math.PI);
+            ctx.fillStyle = colorRandom();
+            //ctx.closePath();
+            ctx.fill();
+        }
+
+        function createMultipleCircle(){
+            for(let i = 0; i < 10; i++){
+                funny();
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

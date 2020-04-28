@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--<button><h1>ADAM</h1></button>
+    apple <div id"apple>10</div>
+    <button><h1>EVA</h1></button> -->
+    <script>
+        class Apple {
+            constructor(weight) {
+            this.weight = weight;
+            }
+            isEmpty(){
+                if ( this.weight < 1){
+                    alert("Hey >.< Empty apple!!!! Stop eating");
+                    return true;
+                }
+                return false;
+            };
+            decrease() {
+                this.weight--;
+            };
+            getWeight() {
+                return this.weight;
+            };
+        };
+        class Human {
+            constructor(name,gender,humanWeight) {
+                this.name = name;
+                this.gender = gender;
+                this.humanWeight = humanWeight;
+            };
+            isMale() {
+                if ( this.gender === "male"){
+                    return true;
+                }
+            };
+            eat(eatWhat) {
+                if( !eatWhat.isEmpty()){
+                    eatWhat.decrease();
+                    this.humanWeight++;
+                }
+            };
+            say(){
+                return "Hello ^^ My name is " + this.name;
+            };
+            getName() {
+                return this.name;
+            };
+            setName(newName) {
+                this.name = newName;
+            };
+
+            setWeight(newWeight) {
+                this.humanWeight = newWeight;
+            };
+            getWeight() {
+                return this.humanWeight;
+            };
+        };
+        //make objects
+        let weightApple = 10;
+        let appleOfSteve = new Apple(weightApple);
+        let adam = new Human( 'Adam','male', 65, appleOfSteve);
+        let eva = new Human( 'Eva','female', 50, appleOfSteve);
+        //before eating
+        document.write(" check first weight of apple before eating: " + appleOfSteve.getWeight() + "<br/>" );
+        document.write( adam.say() + ". My first weight: " + adam.getWeight() + "<br/>" );
+        document.write( eva.say() + ". My first weight: " + eva.getWeight() + "<br/>" );
+        //kịch bản
+        for ( let i = 0; i < weightApple + 1 ; i++ ){
+            if( i % 2 === 0){
+                adam.eat(appleOfSteve);
+                document.write("<br/>------> check apple weight after Adam ate: " + appleOfSteve.getWeight() );
+                document.write("<br/> Adam's weight: " + adam.getWeight() );
+            } else {
+                eva.eat(appleOfSteve);
+                document.write("<br/>------> check apple weight after Eva ate: " + appleOfSteve.getWeight() );
+                document.write("<br/> Eva's weight: " + eva.getWeight() );
+            }
+        }
+    </script>
+</body>
+</html>

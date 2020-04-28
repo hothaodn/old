@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng.
+        // Chương trình này đếm số ký tự số trong mảng.
+
+        let mangBai3 = [ 'c', 8, 's', 'c', 2, 6, 'd' ];
+        let soTuNhien = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let demSo = 0;
+        let ketQua = [];
+        for ( let i = 0; i < mangBai3.length; i++){
+            if( soTuNhien.includes( mangBai3[i] ) ){
+                demSo++ ;
+                ketQua.push(mangBai3[i]);
+            }
+        } alert ( mangBai3.join(" - ") + " có số ký tự số trong mảng là " + demSo + " số, với các số tự nhiên: " + ketQua.join(" - ") );
+    </script>
+</body>
+</html>

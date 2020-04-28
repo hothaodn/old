@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>game đoán số</title>
+</head>
+<body>
+    <script>
+        let i = 1;
+        let soNgauNhien, soDoan1, soDoan2, soDoan3;
+
+        do {
+            let soMin = parseInt(prompt("Hello hellooooo!! \nChào mừng đến với game đoán số zui zẻ ^^ \nHãy nhập giá trị min của khoảng muốn đoán "));
+            let soMax = parseInt(prompt("Và nhập giá trị max của khoảng muốn đoán "));
+
+            soDoan1 = parseInt(prompt("Lần 1 đoán số: "));
+            soDoan2 = parseInt(prompt("Lần 2 đoán số: "));
+            soDoan3 = parseInt(prompt("Lần 3 đoán số: "));
+
+            soNgauNhien = Math.floor((Math.random() * soMax) + soMin);
+
+            if ( soDoan1 === soNgauNhien || soDoan2 === soNgauNhien || soDoan3 === soNgauNhien ){
+                alert( "Bravo ! Bạn đã đoán trúng số ngẫu nhiên là " + soNgauNhien );
+            } else
+                alert( "Số random là " +soNgauNhien + "\nBạn đã đoán 3 số: " + soDoan1 + " , " + soDoan2 + " và " + soDoan3+ " là chưa đúng rồi. Chơi lại nhé !" );
+
+            i++ ;
+        } while ( soDoan1 !== soNgauNhien && soDoan2 !== soNgauNhien && soDoan3 !== soNgauNhien );
+    </script>
+</body>
+</html>

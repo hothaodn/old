@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="text-align: center">
+<h3>NHẬP TÊN NGÔI SAO</h3>
+<p>Polaris, Aldebaran, Deneb, Vega, Altair, Dubhe, Regulus</p>
+<input type="text" id="ngoiSao" oninput="timChomSao()" placeholder="vd: Polaris, Aldebaran,...">
+<h3>Thuộc chòm sao</h3>
+<span id="ketQua"></span>
+
+<script>
+    //Bài 5: Tạo một mảng với bảy phần tử dạng chuỗi có giá trị là tên các ngôi sao sau:
+    // Polaris, Aldebaran, Deneb, Vega, Altair, Dubhe và Regulus.
+    // Tạo một mảng khác với bảy phần tử dạng chuỗi có giá trị là tên các chòm sao tương ứng chứa các ngôi sao:
+    // Ursa Minor, Tarurus, Cygnus, Lyra, Aquila, Ursa Major và Leo.
+    // Tiếp theo, tạo một hàm nhận vào một tham số dạng chuỗi duy nhất.
+    // Trong hàm này, duyệt qua mảng thứ nhất để tìm tên ngôi sao. Nếu tìm thấy, trả lại giá trị tương ứng với chỉ số đó
+    // ở mảng thứ hai. Nói cách khác, trả lại tên chòm sao của ngôi sao đó. Trong phần <body> của trang web,
+    // dùng hộp thoại prompt để người dùng nhập vào tên của ngôi sao, sau đó gọi hàm với thông tin đầu vào.
+    // Đừng quên xử lý trong trường hợp không tìm thấy ngôi sao nào. Cho kết quả hiển thị trên màn hình.
+
+    let ngoiSao = [ 'Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let chomSao = [ 'Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+
+
+    function timChomSao() {
+        let sao = document.getElementById("ngoiSao").value ;
+        let viTriChomSao = ngoiSao.indexOf(sao);
+
+        for ( let i = 0; i < chomSao.length; i++){
+            if ( ngoiSao.indexOf(sao) !== -1 ){
+                document.getElementById("ketQua").innerHTML = chomSao[viTriChomSao];
+            } else if (ngoiSao.indexOf(sao) === -1) {
+                document.getElementById("ketQua").innerHTML = "Không tìm thấy ngôi sao này trong danh sách (lưu ý viết hoa chữ cái đầu tiên)";
+            }
+        }
+    }
+</script>
+</body>
+</html>

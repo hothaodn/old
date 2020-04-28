@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng máy tính</title>
+
+</head>
+<body style="text-align:center">
+    <h1 style="color:greenyellow">CACULATOR</h1>
+    <h3>Please enter numbers:</h3>
+        <input type="number" id="so1"/> <!--Nhap toan hang-->
+        <input type="number" id="so2"/> <!--Nhap toan hang-->
+
+    <br/><br/>
+
+        <button type="button" onclick="tinh(1)">+</button>
+        <button type="button" onclick="tinh(2)">-</button>
+        <button type="button" onclick="tinh(3)">x</button>
+        <button type="button" onclick="tinh(4)">:</button>
+
+    <h2>HERE IS RESULT: </h2>
+    <p id="ketqua" style=""color:blue>____</p>
+
+    <script>
+        var a;
+        function tinh(a) {
+            //var a;
+            var x = parseFloat(document.getElementById("so1").value);
+            var y = parseFloat(document.getElementById("so2").value);
+
+            switch (a){
+                case 1:
+                    document.getElementById("ketqua").innerHTML= x + y;
+                    break;
+                case 2:
+                    document.getElementById("ketqua").innerHTML= x - y;
+                    break;
+                case 3:
+                    document.getElementById("ketqua").innerHTML= x * y;
+                    break;
+                case 4:
+                    document.getElementById("ketqua").innerHTML= x / y;
+                    break;
+            }
+        }
+
+    </script>
+
+</body>
+</html>

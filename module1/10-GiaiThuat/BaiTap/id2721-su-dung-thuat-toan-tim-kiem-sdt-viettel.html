@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Cho một danh sách các số điện thoại thuộc các nhà mạng khác nhau.
+        // Hãy tìm các số điện thoại thuộc nhà mạng Viettel.
+        //086,096,097,032,033,034,035,036,037,038,039
+        function findViettelNumber(numberPhoneList) {
+            let pattViettel = /(^086[0-9]{7}$|^096[0-9]{7}$|^097[0-9]{7}$|^098[0-9]{7}$|^032[0-9]{7}$|^033[0-9]{7}$|^034[0-9]{7}$|^035[0-9]{7}$|^036[0-9]{7}$|^037[0-9]{7}$|^038[0-9]{7}$|^039[0-9]{7}$)/g;
+            let viettelList = [];
+            for ( let i = 0; i < numberPhoneList.length; i++ ){
+                let temp = numberPhoneList[i];
+                temp = temp.replace(/\D/g,"");
+                if (pattViettel.test(temp)){
+                    viettelList.push(temp);
+                }
+            }
+            return viettelList;
+        }
+        //test
+        let listTelOfCustomer = ['0966.38.38.68','07.65.666.888','035,781,7646','0822222.756','0936.69.8899 ','0974455678',
+            '03,392,57406','0915.22.33.99 ','0973.453.456 ','09.19.513.456 ','0397028085','034 8784 485','0971.166.668 ','0385431183','0365724731',
+            '0393407981',' 0935.666.660 ','0906.767.666  ','0916.44.6868','  0986.  455.999  '];
+        let listViettel =  findViettelNumber(listTelOfCustomer);
+        document.write("Đầu số Viettel: 086,096,097,032,033,034,035,036,037,038,039<br/>");
+        document.write(listViettel.join("<br/>"));
+    </script>
+</body>
+</html>

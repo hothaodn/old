@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //==================
+        let ElectricLamp = function () {
+            this.connectToButton = function (SwitchButton) {
+                this.SwitchButton = SwitchButton;
+            };
+            this.status = function () {
+                if ( this.SwitchButton.status === true ){
+                    alert( "Light is ON");
+                } else{
+                    alert( "Light is OFF");
+                }
+            };
+        };
+
+        //==================
+        let SwitchButton = function () {
+            this.connectToLamp = function (ElectricLamp) {
+                this.ElectricLamp = ElectricLamp;
+            };
+            this.switchOn = function () {
+                alert ("Press OK to switch ON");
+                this.status = true;
+            };
+            this.switchOff = function () {
+                alert ("Press OK to switch OFF");
+                this.status = false;
+            };
+        };
+        //========= make new obj =========
+        let bongDen = new ElectricLamp();
+        let congTac = new SwitchButton();
+
+        bongDen.connectToButton(congTac);
+        congTac.connectToLamp(bongDen);
+        //========= run program 10 times =========
+        for ( let i = 0; i <= 10; i++){
+            congTac.switchOn();
+            bongDen.status();
+            //
+            congTac.switchOff();
+            bongDen.status();
+        }
+
+    </script>
+</body>
+</html>

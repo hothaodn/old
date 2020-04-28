@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let patt = /^[A-Z]/;
+        let i = 0;
+        let check;
+        do{
+            let baiThucHanh1 = prompt("Nhập vào dãy chữ:");
+            if( patt.test(baiThucHanh1)){
+                alert("Có kí tự viết hóa chữ cái đầu tiên");
+                check = true
+            }else{
+                alert("KO có kí tự viết hoa chữ cái đầu tiên");
+                check = false;
+            }
+            i++;
+        }while (check === false);
+    </script>
+</body>
+</html>

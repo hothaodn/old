@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chỉ số cân nặng của cơ thể</title>
+</head>
+<body>
+    <img src="https://james.codegym.vn/pluginfile.php/10810/mod_assign/intro/1.png" width="500px"/>
+    <h2 style="color:green">Tính chỉ số cân nặng của cơ thể</h2>
+
+    Cân nặng (kg):
+        <input type="number" id="weight"/>
+    Chiều cao (m):
+        <input type="number" id="height"/><br/>
+
+        <button type="button" onclick="tinh()">Tính BMI</button>
+        <p id="ketqua"></p>
+
+    <script>
+        function tinh() {
+            var nang = parseFloat(document.getElementById("weight").value);
+            var cao = parseFloat(document.getElementById("height").value);
+            var bmi = nang / (cao * cao);
+
+            if (bmi < 18.5)
+                    document.getElementById('ketqua').innerHTML = "Underweight & BMI = "+ bmi;
+                else if (bmi < 25.0)
+                    document.getElementById('ketqua').innerHTML = "Normal & BMI = "+ bmi;
+                else if (bmi < 30.0)
+                    document.getElementById('ketqua').innerHTML = "Overweight & BMI = "+ bmi;
+            else
+                document.getElementById('ketqua').innerHTML = "Obese & BMI = "+ bmi;
+        }
+
+    </script>
+</body>
+</html>

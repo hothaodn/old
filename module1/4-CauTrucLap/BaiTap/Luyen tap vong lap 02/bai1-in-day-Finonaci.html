@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let i = 0;
+        let j = 1;
+        let fibo = null;
+        let hienThi = "";
+        let soThuTu = 1;
+
+        do {
+            fibo = i + j;
+            hienThi += fibo + " // "; // chuỗi số
+            i = j; //gán số trước cho số sau
+            j = fibo; //gán số trước cho số sau
+            soThuTu++ ;
+        } while ( soThuTu <= 1000);
+        document.write( "Dãy số fibonacci " + hienThi );
+    </script>
+</body>
+</html>

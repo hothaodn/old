@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Sinh bảng cửu chương</title>
+</head>
+<body>
+    <script>
+        let i = 2; //hang ngang
+        let j = 1; // hang doc
+        let bangCuuChuong = "<table width='600' border='1' cellpadding='5' >";
+
+        while ( i<= 9 && j <= 9){
+            bangCuuChuong = bangCuuChuong + "<tr>";
+            while ( j <= 9 && i <= 9 ){
+                bangCuuChuong = bangCuuChuong + "<td>" + i + "x" + j + "=" + i*j + "</td>";
+                i++ ;
+            }
+            bangCuuChuong = bangCuuChuong + "</tr>";
+            j++ ;
+            i = 2;
+        }
+        bangCuuChuong = bangCuuChuong + "</table>";
+        document.write("<h1 style='color:blue' >BẢNG CỬU CHƯƠNG</h1><br/>" + bangCuuChuong);
+    </script>
+</body>
+</html>

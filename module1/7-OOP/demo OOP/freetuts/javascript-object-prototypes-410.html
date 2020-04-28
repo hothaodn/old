@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function Person(name,email,address){
+
+            // Thuộc tính
+            this.name = name;
+            this.email = email;
+            this.address = address;
+
+            // Phương thức
+            this.showInfo = function(){
+                document.write("Tên là: " + this.name + "<br/>");
+                document.write("Email là: " + this.email + "<br/>");
+                document.write("Địa chỉ là: " + this.address + "<br/>");
+            };
+        }
+
+        // Tạo mới
+        let katy = new Person("Katy","timaruko@gmail.com","ĐN");
+        //katy.gender = "Female";
+        //katy.showGender();
+
+        // Gán thuộc tính
+        //katy.name = "Katy";
+        //katy.email = "hothaodn@gmail.com";
+        //katy.address = "Đà Nẵng";
+
+        // Gọi phương thức
+        katy.showInfo();
+
+        // Bổ sung thông tin
+        Person.prototype.gender = "";
+        Person.prototype.showGender = function(){
+            document.write(this.gender);
+        };
+
+        // Sử dụng
+        let beHuyen = new Person("bé Huyền thúi","abc@abc.abc","New Jersey");
+        beHuyen.gender = "Female";
+        beHuyen.showInfo();
+        beHuyen.showGender();
+    </script>
+</body>
+</html>

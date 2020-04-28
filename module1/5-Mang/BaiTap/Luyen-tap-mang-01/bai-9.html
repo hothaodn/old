@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <p>Bài 9- Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b.
+        Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên.
+        Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị mảng c.</p>
+        <button onclick="khoiTaoMangA()" >Khởi tạo mảng A</button>
+        <button onclick="khoiTaoMangB()" >Khởi tạo mảng B</button>
+        <button onclick="khoiTaoMangC()" >Khởi tạo mảng C (nối từ hai mảng A & B)</button>
+
+        <p id="ketQua1"></p>
+        <p id="ketQua2"></p>
+        <p id="ketQua3"></p>
+
+    <script>
+        let mangA = [];
+        let mangB = [];
+        let mangC = [];
+
+        function khoiTaoMangA() {
+            for ( let a = 0; a < 10; a++ ){
+                mangA[a] = Math.floor(Math.random()*10);
+            }
+            document.getElementById("ketQua1").innerHTML = "Mảng A random: " + mangA.join(" - ");
+        }
+
+        function khoiTaoMangB() {
+            for ( let b = 0; b < 10; b++ ){
+                mangB[b] = Math.floor(Math.random()*10);
+            }
+            document.getElementById("ketQua2").innerHTML = "Mảng B random: " + mangB.join(" - ");
+        }
+
+        function khoiTaoMangC() {
+            mangC = mangA.concat( mangB);
+            document.getElementById("ketQua3").innerHTML = "Mảng C random: " + mangC.join(" - ");
+        }
+
+</script>
+</body>
+</html>

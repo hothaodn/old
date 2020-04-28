@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<button><h1>ADAM</h1></button>
+apple <div id"apple>10</div>
+<button><h1>EVA</h1></button> -->
+<script>
+    let Apple = function (weight) {
+        this.weight = weight;
+        this.isEmpty = function () {
+            if (this.weight < 1) {
+                alert("Hey >.< Empty apple!!!! Stop eating")
+                return true;
+            }
+            return false; //giá trị chính thức trả về là false
+        };
+        this.decrease = function () {
+            this.weight--;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+    };
+    let Human = function (name, gender, humanWeight) {
+        this.name = name;
+        this.gender = gender;
+        this.humanWeight = humanWeight;
+        this.isMale = function () {
+            if (this.gender === "male") {
+                return true;
+            }
+        };
+        this.eat = function (apple) { //bổ sung argument để link với object apple
+            if (!apple.isEmpty()) { //kiểm tra apple còn miếng mô ko thì mới ăn tiếp (viết code kiểm tra tại class lun, code cũ kiểm tra ngoài class
+                apple.decrease();
+                this.humanWeight++;
+            }
+        };
+        this.say = function () {
+            return "Hello ^^ My name is " + this.name;
+        };
+        this.getName = function () {
+            return this.name;
+        };
+        this.setName = function (newName) {
+            this.name = newName;
+        };
+        this.setWeight = function (newWeight) {
+            this.humanWeight = newWeight;
+        };
+        this.getWeight = function () {
+            return this.humanWeight;
+        };
+    };
+    //make objects
+    let weightApple = 10;
+    let appleOfSteve = new Apple(weightApple);
+    let adam = new Human('Adam', 'male', 65); //khai báo tên object ko viết hoa chữ cái đầu như class
+    let eva = new Human('Eva', 'female', 50); //
+    //before eating
+    document.write(" check first weight of apple before eating: " + appleOfSteve.getWeight() + "<br/>");
+    document.write(adam.say() + ". My first weight: " + adam.getWeight() + "<br/>");
+    document.write(eva.say() + ". My first weight: " + eva.getWeight() + "<br/>");
+    //eating
+    //đã bỏ dòng 79
+    for (let i = 0; i < weightApple; i++) {
+        if (i % 2 === 0) {
+            adam.eat(appleOfSteve);
+            document.write("<br/>------> check apple weight after Adam ate: " + appleOfSteve.getWeight());
+            document.write("<br/> Adam's weight: " + adam.getWeight());
+        } else {
+            eva.eat(appleOfSteve);
+            document.write("<br/>------> check apple weight after Eva ate: " + appleOfSteve.getWeight());
+            document.write("<br/> Eva's weight: " + eva.getWeight());
+        }
+    }
+</script>
+</body>
+</html>

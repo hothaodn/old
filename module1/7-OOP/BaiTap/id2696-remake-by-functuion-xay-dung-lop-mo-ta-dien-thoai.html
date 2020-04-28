@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MY PHONE</title>
+</head>
+<body style="text-align: center; color: royalblue">
+    <h1><b>NOKIA</b></h1>
+    <button onclick="turnOnOff()" >ON/OFF</button><span id="status">OFF</span> <br/>
+    <button onclick="chargePin()" >Charge pin</button><br/>
+    ||||||Pin status||||||<span id="pinStatus" ></span>||||||
+
+    <br/><br/><textarea id="screen" rows="15" cols="30" placeholder="Phone Display Screen" ></textarea>
+
+    <h3>Messages</h3>
+        <button onclick="makeNewMsg()">Make New Msg</button>
+        <button onclick="seeInbox()">Inbox</button>
+        <button onclick="seeSentMsg()">Sent Msg</button>
+        <button onclick="seeDraftMsg()" >Draft Msg</button>
+
+        <br/><br/><textarea id="typing" oninput="displayMsgTyping()" rows="1" cols="30" oninput="" placeholder="Typing message here..." ></textarea>
+        <br/><button onclick="sendMsg()">Send</button>
+        <button onclick="saveDraftMsg()" >Save</button>
+        <p id="test"></p>
+
+    <script>
+        let inbox = ["good morning","What are you doing?"];
+        let sentMsgBox = ["hello","hi","how are you?"];
+        let draftMsgBox = ["i'm playing game"];
+        let text = document.getElementById("typing");
+        let screen = document.getElementById("screen");
+        let check;
+        let pinStatus = 100;
+
+        let count = 0;
+        function turnOnOff() {
+                if ( count % 2 === 0){
+                    document.getElementById("status").innerHTML = "ON";
+                    screen.innerHTML = new Date() + "\n\nPhone is ready";
+                    text.value = "";
+                    document.getElementById("pinStatus").innerHTML = pinStatus-- + "%";
+                    check = true;
+                } else{
+                    screen.innerHTML = "";
+                    document.getElementById("status").innerHTML = "OFF";
+                    text.value = "";
+                    check = false;
+                }
+            count++;
+        }
+
+        function chargePin() {
+            if ( pinStatus < 100 ){
+                pinStatus++;
+                document.getElementById("pinStatus").innerHTML = pinStatus + "%";
+                screen.innerHTML = "Charging...";
+            } else if ( pinStatus === 100){
+                screen.innerHTML = "Battery full";
+            }
+        }
+            //========================= MESSAGE =========================
+
+        function makeNewMsg() {
+            if ( check === true && pinStatus >= 90 ){
+                screen.innerHTML = "" ;
+                text.value = "";
+                document.getElementById("pinStatus").innerHTML = pinStatus-- + "%";
+            }
+            alertLowBattery();
+        }
+            function displayMsgTyping() {
+                if ( check === true && pinStatus >= 90 ){
+                    screen.innerHTML = text.value ;
+                }
+                alertLowBattery();
+            }
+            function sendMsg() {
+                if ( check === true && pinStatus >= 90 ){
+                    sentMsgBox.push(text.value);
+                    screen.innerHTML = "";
+                    text.value = "";
+                    document.getElementById("pinStatus").innerHTML = pinStatus-- + "%";
+                }
+                alertLowBattery();
+            }
+            function saveDraftMsg() {
+                if ( check === true && pinStatus >= 90 ){
+                    draftMsgBox.push(text.value);
+                    screen.innerHTML = "";
+                    text.value = "";
+                    document.getElementById("pinStatus").innerHTML = pinStatus-- + "%";
+                }
+                alertLowBattery();
+            }
+            //xem inbox
+            function seeInbox() {
+                if ( check === true && pinStatus >= 90 ){
+                    screen.innerHTML = inbox.join("\n");
+                    document.getElementById("pinStatus").innerHTML = pinStatus-- + "%";
+                }
+                alertLowBattery();
+            }
+            //xem tin nhắn đã gửi
+            function seeSentMsg() {
+                if ( check === true && pinStatus >= 90 ){
+                    screen.innerHTML = sentMsgBox.join("\n");
+                    document.getElementById("pinStatus").innerHTML = pinStatus-- + "%";
+                }
+                alertLowBattery();
+            }
+            //xem tin nhắn nháp đã lưu
+            function seeDraftMsg() {
+                if ( check === true && pinStatus >= 90 ){
+                    screen.innerHTML = draftMsgBox.join("\n");
+                    document.getElementById("pinStatus").innerHTML = pinStatus-- + "%";
+                }
+                alertLowBattery();
+            }
+
+            function alertLowBattery() {
+                if ( pinStatus < 90 ){
+                    screen.innerHTML = "Low battery!!!"
+                }
+            }
+
+
+    </script>
+</body>
+</html>

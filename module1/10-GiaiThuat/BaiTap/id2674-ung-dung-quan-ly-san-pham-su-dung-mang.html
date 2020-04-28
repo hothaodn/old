@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fruits Store</title>
+    <style>
+        body {
+        background-image: url('https://isorepublic.com/wp-content/uploads/2018/11/isorepublic-fruit-background-1-1100x733.jpg');no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover; background-size: cover;
+        }
+        button {background-color: bisque}
+    </style>
+</head>
+<body>
+        <h1 style="color:darkred" >FRUITS STORE</h1>
+        <b>Add New Product</b> <input type="text" id="fruit" placeholder="New Product">
+            <button onclick="addProduct()" >Add</button><br/>
+        <p id="displayEditForm"></p>
+        <h3>Display All Products</h3>
+        <p id="displayList"></p>
+
+        <script>
+        let listProducts = ["Apple", "Orange", "Mango","Grape", "Banana", "Kiwi", "Strawberry","Lemon"];
+        displayList();
+
+        function displayList(){
+            let list = "<table><tr><td><b>No.</b></td>" +
+                "<td><b>Product Name</b></td>" +
+                "<td></td><td><b>" +listProducts.length+ " products</b></td></tr>";
+            for(let i = 0; i < listProducts.length; i++){
+                list += "<tr><td width='40'>"+(i+1) +".</td><td width='200'>" +listProducts[i]+ "</td><td><button onclick='displayEditForm("+i+")'>Edit</button></td><td><button onclick='deleteProduct("+i+")'>Delele</button></td></tr>"
+            }
+            list += "</table>";
+            document.getElementById("displayList").innerHTML = list;
+        }
+
+        function addProduct(){
+            let fruit = document.getElementById("fruit").value;
+            if (/\w\D/ig.test(fruit)){
+                fruit.trim().replace(/\s+/g," ");
+                listProducts.push(fruit);
+                alert("You just add " + fruit);
+                displayList();
+            } else {
+                alert("Please enter by words")
+            }
+        }
+        function displayEditForm(i){
+            document.getElementById("displayEditForm").innerHTML = "<b>Edit Product </b><input type='text' id='editProduct'>" +
+                "<button onclick='editProduct("+i+")'>Save</button><button onclick='exitEditForm()'>X</button><br/>";
+            document.getElementById("editProduct").value = listProducts[i];
+        }
+        function exitEditForm(){
+            document.getElementById("displayEditForm").innerHTML = "";
+        }
+        function editProduct(i){
+            let fruit = document.getElementById("editProduct").value;
+            if (/\w\D/ig.test(fruit)) {
+                fruit.trim().replace(/\s+/g, " ");
+                listProducts[i] = fruit;
+            }else {
+                alert("Please enter by words")
+            }
+            displayList();
+        }
+        function deleteProduct(i){
+            if(confirm("Are sure to delete " + listProducts[i] +"?")){
+                listProducts.splice(i,1);
+                displayList();
+            }
+        }
+    </script>
+</body>
+</html>

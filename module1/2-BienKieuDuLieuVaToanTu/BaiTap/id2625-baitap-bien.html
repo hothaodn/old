@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+
+        /*
+        Bài 3: Viết chương trình tính diện tích hình tròn
+        Bài 4: Viết chương trình chu vi hình tròn
+         */
+        var r=prompt("Nhap ban kinh hinh tron (cm): ");
+        var pi=3.14;
+        var s=pi*r*r;
+        var cv=2*pi*r;
+        alert("Dien tich hinh tron la: "+s+" cm2 \nChu vi hinh tron la: "+cv+" cm");
+
+
+        /*
+        Bài 2:  Viết chương trình nhập một giá trị là độ 0C (Celsius)
+        và chuyển nó sang độ 0F (Fahrenheit). [Hướng dẫn: C/5 = (F-32)/9]
+         */
+        var c=prompt("Nhap nhiet do C: ");
+        var f=(9*c+160)/5;
+
+        alert(c+" nhiet do C = " +f +" nhiet do F");
+
+
+        /*
+        Bài 1: Viết chương trình nhập điểm của một sinh viên cho các môn:
+        Vật lý, Hóa học, và Sinh học. Sau đó hiển thị điểm trung bình và tổng của những điểm này.
+         */
+        var t=prompt("Nhap diem mon Toan: ");
+        var l=prompt("Nhap diem mon Ly: ");
+        var h=prompt("Nhap diem mon Hoa: ");
+
+        var toan=parseInt(t);
+        var ly=parseInt(l);
+        var hoa=parseInt(h);
+
+        var dtb= (toan+ly+hoa)/3;
+        alert("Diem trung binh 3 mon Toan Ly Hoa la: "+dtb);
+
+
+    </script>
+</body>
+</html>

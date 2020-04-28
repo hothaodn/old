@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập cấu trúc điều kiện 01</title>
+    <style>
+        h3{color:blue};
+    </style>
+</head>
+<body>
+
+    <h3>Bài 1: Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không</h3>
+        Nhập 2 số:
+            <input type="number" id="soA"/>
+            <input type="number" id="soB"/>
+            <button type="button" onclick="bai1()">Kiểm tra</button>
+            <p id="ketqua1"></p>
+
+    <h3>Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10.</h3>
+        Nhập tuổi học sinh:
+            <input type="number" id="age"/>
+            <button type="button" onclick="bai2()">Kiểm tra</button>
+            <p id="ketqua2"></p>
+
+    <h3>Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0</h3>
+        Nhập một số nguyên bất kỳ:
+            <input type="number" id="songuyen"/>
+            <button type="button" onclick="bai3()">Kiểm tra</button>
+            <p id="ketqua3"></p>
+
+    <h3>Bài 4: Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó</h3>
+        Nhập 2 số nguyên:
+            <input type="number" id="so1"/>
+            <input type="number" id="so2"/>
+            <input type="number" id="so3"/>
+            <button type="button" onclick="bai4()">Kiểm tra</button>
+            <p id="ketqua4"></p>
+
+    <h3>Bài 5: Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ</h3>
+
+    <h3>Bài 6: Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng</h3>
+        Nhập doanh số bán hàng (VND):
+            <input type="number" id="doanhso"/>
+        Nhập mức % hoa hồng áp dụng cho mức doanh số (vd: 0.1):
+            <input type="number" id="hoahong"/>
+            <button type="button" onclick="bai6()">Kiểm tra</button>
+            <p id="ketqua6"></p>
+
+    <h3>Bài 7: Viết chương trình để tính cước điện thoại bàn cho một hộ gia đình với các thông số như sau:</h3>
+        Nhập số phút gọi điện thoại cần tính giá cước:
+            <input type="number" id="sophut"/>
+            <button type="button" onclick="bai7()">Kiểm tra</button>
+            <p id="ketqua7"></p>
+
+
+
+    <script>
+        //Bài 1: Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không
+            function bai1() {
+                let a = parseFloat(document.getElementById("soA").value);
+                let b = parseFloat(document.getElementById("soB").value);
+                let c = a % b;
+                if (c == 0)
+                    document.getElementById("ketqua1").innerHTML="Số a chia hết cho b";
+                else
+                    document.getElementById("ketqua1").innerHTML="Số a KHÔNG chia hết cho b, dư " + c;
+            }
+        //Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10.
+            function bai2() {
+                let tuoi = parseInt(document.getElementById("age").value);
+                if (tuoi >= 15)
+                    document.getElementById("ketqua2").innerHTML = tuoi + " tuổi: Đủ điều kiện vào học lớp 10";
+                else
+                    document.getElementById("ketqua2").innerHTML = tuoi + " tuổi: Không đủ điều kiện vào học lớp 10";
+            }
+
+        //Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0
+            function bai3() {
+                let songuyen1 = parseInt(document.getElementById("songuyen").value);
+
+                if (songuyen1 > 0)
+                    document.getElementById("ketqua3").innerHTML = songuyen1 + " lớn hơn 0";
+                    else if (songuyen1 < 0)
+                        document.getElementById("ketqua3").innerHTML = songuyen1 + " nhỏ hơn 0";
+                else
+                    document.getElementById("ketqua3").innerHTML = "Vui lòng nhập số khác 0";
+            }
+
+
+        //Bài 4: Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó
+        function bai4() {
+            let x = parseInt(document.getElementById("so1").value);
+            let y = parseInt(document.getElementById("so2").value);
+            let z = parseInt(document.getElementById("so3").value);
+            let max = x;
+
+            if (max < y){
+                max = y;
+                if(max < z)
+                    max = z;
+            } else if (max < z)
+                    max = z;
+
+            document.getElementById("ketqua4").innerHTML = "Số lớn nhất trong 3 số là: " + max;
+        }
+
+
+        //Bài 5: Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ
+
+        //Bài 6: Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng
+        function bai6() {
+            let ds = parseFloat(document.getElementById("doanhso").value);
+            let hh = parseFloat(document.getElementById("hoahong").value);
+            let thuong = ds * hh;
+            document.getElementById("ketqua6").innerHTML="Hoa hồng nhận được là (VND): " + thuong;
+        }
+
+
+        //Bài 7: Viết chương trình để tính cước điện thoại bàn cho một hộ gia đình với các thông số như sau:
+        //Phí thuê bao bắt buộc là 25 nghìn.
+        //600 đồng cho mỗi phút gọi của 50 phút đầu tiên.
+        //400 đồng cho mỗi phút gọi của 150 phút tiếp theo.
+        //200 đồng cho bất kỳ mỗi phút nào sau 200 phút đầu tiên.
+        function bai7() {
+            let phut = parseInt(document.getElementById("sophut").value);
+            const phithuebao = 25000;
+            const c600 = 600;
+            const c400 = 400;
+            const c200 = 200;
+
+            let cuoc;
+            if (phut == 0 )
+                cuoc = phithuebao;
+                else if (phut <= 50 )
+                    cuoc = phithuebao + ( phut * c600 );
+                    else if (phut <= 150 )
+                        cuoc = phithuebao + ( 50 * c600 ) + ( phut - 50 ) * c400;
+            else if ( phut > 200)
+                cuoc = phithuebao + ( 50 * c600 ) + ( 150 * c400 ) + ( phut - 200 ) * c200;
+
+            document.getElementById("ketqua7").innerHTML = "Cước điện thoại bàn cho một hộ gia đình là: " + cuoc + " VND với tổng " + phut + " phút cuộc gọi";
+        }
+
+    </script>
+</body>
+</html>

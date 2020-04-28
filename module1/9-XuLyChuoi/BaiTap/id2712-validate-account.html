@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*Một tài khoản hợp lệ cần đạt các yêu cầu sau:
+        Không chứa các ký tự đặc biệt
+        Ít nhất là 6 ký tự
+        Không chứa các ký tự viết hoa
+        Cho phép dấu gạch dưới (_)*/
+        function isValidAccount(account) {
+            let patt = /^[a-z0-9_]{6,}$/;
+            if (patt.test(account)){
+                alert(account + ": Valid Account");
+            }else{
+                alert(account + ' :Invalid Account\ntài khoản hợp lệ cần đạt các yêu cầu sau:\n' +
+                    'Không chứa các ký tự đặc biệt\n' +
+                    'Ít nhất là 6 ký tự\n' +
+                    'Không chứa các ký tự viết hoa\n' +
+                    'Cho phép dấu gạch dưới (_)*/');
+            }
+        }
+        isValidAccount('A222222$$');
+        isValidAccount('$$$222222$$');
+        isValidAccount('222222');
+        isValidAccount('_abc123');
+        isValidAccount('______');
+        isValidAccount('123456');
+        isValidAccount('abcdefg');
+        isValidAccount('123abc_');
+        isValidAccount('.@');
+        isValidAccount('12345');
+        isValidAccount('1234_');
+        isValidAccount('abcde');
+    </script>
+</body>
+</html>

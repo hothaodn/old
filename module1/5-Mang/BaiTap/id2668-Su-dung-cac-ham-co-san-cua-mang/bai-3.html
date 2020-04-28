@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 3: Viết một chương trình nhập vào một chuỗi
+        // và chuyển các ký tự chữ thường trong chuỗi vừa nhập sang thành dạng chữ hoa.
+        // Ví dụ: nếu bạn nhập vào chuỗi 'The Quick Brown Fox' kết quả của chương trình là 'tHE qUICK bROWN fOX'.
+
+        let chuoi = prompt("nhập 1 câu");
+        let vietHoa = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let vietThuong = 'abcdefghijklmnopqrstuvwxyz';
+        let ketQua = [];
+
+        //alert ( vietHoa.indexOf('b'));
+        //Hàm indexOf sẽ tìm kiếm một phần tử trong mảng dựa vào giá trị của phần tử,
+        // hàm sẽ trả về vị trị( khóa) index của phần tử nếu tìm thấy và trả về -1 nếu không tìm thấy.
+        for ( let i = 0; i < chuoi.length; i++){
+            if ( vietHoa.indexOf( chuoi [i]) !== -1){
+                ketQua.push ( chuoi[i].toLowerCase());
+            } else if (vietThuong.indexOf(chuoi[i]) !== -1){
+                ketQua.push ( chuoi[i].toUpperCase());
+            } else {
+                ketQua.push ( chuoi[i] );
+            }
+        } alert ( ketQua.join("") );
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Bài 8- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử.
+        Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.</p>
+    <input type="number" id="soNguyen" />
+    <button onclick="nhapSo()" >Thêm phần tử trong mảng</button>
+    <button onclick="hienThiMang()" >Hiển thị mảng</button>
+    <button onclick="sapXepMaxMin()" >Sắp xếp mảng theo thứ tự giảm dần</button>
+
+    <p id="mang1"></p>
+    <p id="mang2"></p>
+
+    <script>
+        let mangBai3 = [];
+
+        function nhapSo() {
+            let soNguyen = document.getElementById("soNguyen").value ;
+            mangBai3.push(soNguyen);
+            document.getElementById("soNguyen").value = "";
+        }
+
+        function hienThiMang() {
+            document.getElementById("mang1").innerHTML = mangBai3.join(" - ");
+        }
+
+        function sapXepMaxMin() {
+            mangBai3.sort(function (a,b){ return a-b})
+            document.getElementById("mang2").innerHTML = "Mảng theo thứ tự giảm dần: " + mangBai3.reverse().join(" - ");
+        }
+
+    </script>
+</body>
+</html>

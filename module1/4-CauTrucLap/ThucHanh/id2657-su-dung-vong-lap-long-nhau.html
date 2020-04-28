@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Sử dụng vòng lặp lồng nhau</title>
+</head>
+<body>
+    <!--test cấu trúc bảng-->
+    <table border='1' width='300' cellspacing='1' cellpadding='3'>
+        //cellspacing là khoảng cách của border đến ô, cellpadding là khoảng cách top, bottom, right, left của text đối với border
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>1</td>
+            <td>1</td>
+        </tr>
+
+    <table/>
+        <hr/>
+
+
+    <script>
+        //dung vong lap for
+        let sout; //biến dùng để vẽ 1 bảng bao gồm các thẻ <table>, <tr> và <td>
+        sout = "<table border='1' width='300' cellspacing='0' cellpadding='3'>" //thao tác mở thẻ table với các thuộc tính
+
+        for (i = 1; i <= 10; i++) {
+            sout = sout + "<tr>"; ////viết thẻ mở <tr> để cộng thêm 1 row
+            for (j = 1; j <= 10; j++) {
+                sout = sout + "<td>" + i * j + "</td>"; //điền data vào từng cell theo từng row 1,2,3,4,5,6....
+            }
+            sout = sout + "</tr>"; //viết thẻ đóng <tr> để kết thúc 1 row
+        }
+        sout = sout + "</table>"; //viết thẻ đóng <table> để kết thúc vẽ table
+        document.write(sout); //hiển thị 1 bảng hoàn thiện, bao gồm nội dung trong bảng
+
+        //dung vong lap while
+        let a = 1;
+        let b =1;
+        let vebang = "<br/><table border='1' width='300'>";
+
+        while ( a <= 10 ) {
+            vebang = vebang + "<tr>";
+            while ( b <= 10){
+                vebang = vebang + "<td>" + a*b + "</td>";
+                b++ ;
+            }
+            vebang = vebang + "</tr>";
+            a++ ;
+            b = 1; //note: đưa b về bằng 0 để thỏa điều kiện thực thi again vòng lặp
+        }
+        vebang = vebang + "</table>";
+        document.write(vebang);
+
+
+        /* tự làm
+        let x, y ;
+        let ketQua = null;
+        for ( y = 1 ; y <= 10; y++){
+            for ( x = 1 ; x <= 10 ; x++ ){
+                ketQua = x*y ;
+                document.write( ketQua + "-  ");
+            }
+            document.write("<br/>");
+        }
+        */
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 3: Đếm số nguyên âm/phụ âm trong một chuỗi
+        function count(string) {
+            let pattNguyenAm = /[ueoai]/ig;
+            let pattPhuAm = /[^ueoai\W\d]/ig;
+            document.write("<br/><br/>" + string + " có nguyên âm: " + string.match(pattNguyenAm)
+                + "<br/>và phụ âm " + string.match(pattPhuAm));
+        }
+        count("he453%^&(&*(@#ll$%^%$^o34234");
+        count("fHFfdgt@$..,;WE#''%hNdg#$%Fw");
+    </script>
+</body>
+</html>

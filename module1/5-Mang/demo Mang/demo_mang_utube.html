@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //cách 1
+        let mangDauTien = [ "hi", "hello" , "girl" ];
+        mangDauTien[1] = "good";
+        alert( mangDauTien[0] + " " + mangDauTien[1] + " " + mangDauTien[2]);
+
+        //cách 2
+        let mangCach2 = new Array (); //khai báo mảng chưa có giá trị
+        mangCach2[99] = "đây là cách 2";
+        mangCach2[55] = " để khai báo hàm";
+        mangCach2["student name"] = "Katy";
+
+        alert (mangCach2[99] + mangCach2[55]);
+        alert (mangCach2["student name"]);
+
+        let danhSachHocSinh = new Array();
+        danhSachHocSinh["tenhocsinh"] = "Milley";
+        alert (danhSachHocSinh["tenhocsinh"] + " là 1 học sinh trong lớp");
+
+
+</script>
+</body>
+</html>

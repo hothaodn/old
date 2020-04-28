@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RACING GAME</title>
+</head>
+<body>
+    <div id="display"></div>
+    <body onload="docReady()">
+
+    <script>
+        class Car {
+            constructor(urlOfImg,speed, top, left) {
+                this.url = urlOfImg;
+                this.speed = speed;
+                this.top = top;
+                this.left = left;
+            };
+
+            display() {
+                return '<img id="car" src="' + this.url + '" width="100" style="position: absolute; top:' + this.top + 'px;left:' + this.left + 'px" />'
+            };
+
+            runUp() {
+                this.top -= this.speed;
+                document.getElementById("car").style.top = this.top + "px";
+            };
+
+            runDown() {
+                this.top += this.speed;
+                document.getElementById("car").style.top = this.top + "px";
+            };
+
+            runRight() {
+                this.left += this.speed;
+                document.getElementById("car").style.left = this.left + "px";
+            };
+
+            runLeft() {
+                this.left -= this.speed;
+                document.getElementById("car").style.left = this.left + "px";
+            };
+        };
+            function moveSelection(evt) {
+                switch (evt.keyCode) {
+                    case 37: /// nút sang trái, mỗi phím máy tính do máy tính quy định 1 số
+                        this.runLeft();
+                        break;
+                    case 39:
+                        this.runRight();
+                        break;
+                    case 38:
+                        this.runUp();
+                        break;
+                    case 40:
+                        this.runDown()
+                        break;
+                }
+            }
+
+            let XeOTo = new Car("./photo-game-lai-xe/right.png",100,20,20);
+            function docReady(){
+                //XeOTo
+                document.getElementById("display").innerHTML = XeOTo.display();
+                window.addEventListener('keydown', moveSelection);
+            }
+
+
+
+        /*function run() {
+            if( XeOTo.left < window.innerWidth - 100){
+                XeOTo.runRight();
+            }
+            document.getElementById("display").innerHTML = XeOTo.display();
+            setTimeout(run,500);
+        }
+
+        run();*/
+    </script>
+</body>
+</html>

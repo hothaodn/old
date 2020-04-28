@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    Bài tập 1: Hiển thị kết quả sử dụng hàm alert():
+        <button type="button" onclick="showMessage1();">Click Me!</button>
+
+        <br/>
+    Bài 2:
+        <div id="messageDiv"></div>
+        <button type="button" onclick="showMessage2();">Click Me!</button>
+
+        <br/>
+    Bài tập 3: Hiển thị kết quả sử dụng hàm document.write():
+
+        <button type="button" onclick="showMessage3();">Click Me!</button>
+
+        <br/>
+    Bài tập 4: Hiển thị kết quả sử dụng hàm console.log():
+
+        <button type="button" onclick="showMessage();">Click Me!</button>
+
+     <script>
+
+         // Bài 1:
+        function showMessage1(){
+            alert('Xin chào!');
+        }
+
+        //Bài 2:
+
+        function showMessage2(){
+            document.getElementById('messageDiv').innerHTML = 'Xin chào!';
+        }
+
+        //Bài 3:
+         function showMessage3(){
+             document.write('Xin chào!');
+         }
+
+         //Bài 4:
+         function showMessage(){
+             console.log('Xin chào!');
+         }
+     </script>
+</body>
+</html>

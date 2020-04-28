@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Sử dụng vòng lặp do while</title>
+</head>
+<body>
+
+    <script>
+        /*Sử dụng vòng lặp do while để viết lại chương trình yêu cầu nhập các số từ 1 -> 10 ở ví dụ trong phần vòng lặp while. */
+        let so1 = null;
+        do {
+            so1 = parseFloat(prompt('Bài 1 c2: Nhập 1 số bất kỳ tu 1->10'));
+        } while ( so1 < 1 || so1 > 10 );
+        alert('Số vừa nhập là: ' + so1);
+
+
+    /*Sử dụng vòng lặp do while để viết lại chương trình yêu cầu nhập các số từ 1 -> 10 ở ví dụ trong phần vòng lặp while.
+        let so = null;
+        let tong = 0;
+
+        do {
+            so = parseFloat(prompt('Bài 1: Nhập 1 số bất kỳ tu 1->10'));
+            alert(so);
+            tong+=so;
+        } while ( so >= 1 && so <= 10 );
+        alert('Tổng các số bạn đã nhập là: ' + tong);  */
+    </script>
+
+</body>
+</html>

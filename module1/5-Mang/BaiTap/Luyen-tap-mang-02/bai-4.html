@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Bài 4: Viết một chương trình để đếm số từ trong một chuỗi
+
+    let mangBai3 = "Hello! How are you? I have 100 apples for you.";
+    let bangChuCaiThuong = 'abcdefghijklmnopqrstuvwxyz';
+    let bangChuCaiHoa = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let demSoTu = 0;
+    let ketQua = [];
+
+    for ( let i = 0; i < mangBai3.length; i++){
+        if( bangChuCaiThuong.includes( mangBai3[i]) || bangChuCaiHoa.includes( mangBai3[i]) ){
+            demSoTu++ ;
+            ketQua.push(mangBai3[i]);
+        }
+    }  alert(ketQua + " có " + demSoTu + " kí tự chữ ");
+
+</script>
+</body>
+</html>

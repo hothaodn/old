@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form>
+        <img id="myImage" src="https://thumbs.gfycat.com/DangerousInbornAmurstarfish-size_restricted.gif" />
+        <p>Click button below to move the image to right</p>
+        <input type="button" value="Move to Right" onclick="moveRight();" /> <!--Xác định sự kiện onclick cho button-->
+        <button onclick="moveLeft();" >Move to Left</button>
+    </form>
+
+    <script>
+        //Tạo biến imgObj để lưu ảnh
+        let imgObj = null;
+
+        //Sử dụng hàm getElementById () để nhận được một đối tượng DOM và sau đó gán nó cho biến imgObj.
+        imgObj = document.getElementById('myImage');
+
+        //Tạo hàm init () để khởi tạo imgObj mà chúng ta đã đặt vị trí và các thuộc tính còn lại.
+        function init() {
+            imgObj = document.getElementById('myImage');
+            imgObj.style.position = 'relative';
+            imgObj.style.left = '0px';
+        }
+
+        //Tạo hàm moveRight () để tăng khoảng cách trái 10 pixel.
+        // Bạn cũng có thể đặt nó là một giá trị âm để di chuyển nó sang bên trái.
+        function moveRight() {
+            imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+        }
+
+        //làm thêm
+        function moveLeft(){
+            imgObj.style.left = parseInt(imgObj.style.left) - 5 + 'px';
+        }
+
+        //Gọi hàm init() khi trình duyệt được tải lần đầu
+        window.onload = init;
+
+
+    </script>
+</body>
+</html>

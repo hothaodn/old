@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*
+        Tính số thời gian mà bạn đã sống dưới nhiều đơn vị khác nhau.
+        Bước 1: Tạo đối tượng Date() với thời gian truyền vào là ngày giờ sinh của bạn.
+        Bước 2: Tạo đối tượng Date() với thời gian hiện tại.
+        Bước 3: Hiển thị thời gian mà bạn đã sống dưới nhiều đơn vị khác nhau:
+        Tôi đã sống 24 năm.
+        Tôi đã sống 288 tháng.
+        Tôi đã sống 8640 ngày.
+        Tôi đã sống 307360 giờ.
+        Tôi đã sống 12441600 phút.
+        Tôi đã sống 746496000 giây.
+        */
+        let currentTime = new Date();
+        let sheWasBorn = new Date();
+        sheWasBorn.setFullYear(1992,8,2);
+        sheWasBorn.setHours(9, 9, 9, 9); //(hour, min, sec, millisec)
+
+        document.write("Cô ấy sinh ngày " +sheWasBorn);//Wed Sep 02 1992 09:09:09 GMT+0700 (Indochina Time)
+        //alert(currentTime.getFullYear());
+        let year = currentTime.getFullYear() - sheWasBorn.getFullYear();
+            document.write("<br/>Cô ấy đã sống " + year + " năm");
+        //
+        let month;
+        let day;
+        if( currentTime.getMonth() >= sheWasBorn.getMonth()){
+            month = year*12 + (currentTime.getMonth() - sheWasBorn.getMonth());
+        }else{
+            month = year*12 + (sheWasBorn.getMonth() - currentTime.getMonth());
+        }
+            document.write("<br/>Cô ấy đã sống " + month + " tháng");
+        //
+        let milisecond = Number(currentTime) - Number(sheWasBorn);
+        let days = Math.round(milisecond/1000/60/60/24);
+        document.write("<br/>Cô ấy đã sống " + days + " ngày");
+
+        let hours = Math.round(milisecond/1000/60/60);
+            document.write("<br/>Cô ấy đã sống " + hours + " giờ");
+
+        let minutes = Math.round(milisecond/1000/60) ;
+            document.write("<br/>Cô ấy đã sống " + minutes + " phút");
+
+        let seconds = Math.round(milisecond/1000);
+            document.write("<br/>Cô ấy đã sống " + seconds + " giây");
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <span id="obj" ></span>
+    <canvas id="paper" width="1000" height="800" style="border: 1px"></canvas>
+    <script>
+        //Phát triển một game đơn giản trong đó có một nhân vật di chuyển.
+        let Cat = function (urlimg,speed,left,top,width) {
+            this.urlimg = urlimg;
+            this.speed = speed;
+            this.left = left;
+            this.top = top;
+            this.width = width;
+
+            this.display = function () {
+                return '<img width="'+ this.width + '"' +
+                    ' src="' + this.urlimg +'"' +
+                    ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+            };
+            this.runRight = function () {
+                this.left += this.speed;
+            };
+            this.runLeft = function () {
+                this.left -= this.speed;
+            };
+            this.runUp = function () {
+                this.top -= this.speed;
+            };
+            this.runDown = function () {
+                this.top += this.speed;
+            };
+        };
+
+        let meoMeoMeo = new Cat('https://static.wixstatic.com/media/d01ed0_83484582999248e38e1c18d1e3703df5~mv2.gif',150,0,0,200);
+        let check = true;
+        let check2 = true;
+        //window.innerWidth
+        //window.innerHeight
+        function start() {
+            if (meoMeoMeo.left < window.innerWidth - meoMeoMeo.width - 90 && check === true ){
+                meoMeoMeo.runRight();
+            }else if (meoMeoMeo.top < window.innerHeight - 250 && check2 === true){
+                meoMeoMeo.runDown();
+                check = false;
+            }else if (meoMeoMeo.left < window.innerWidth && check === false && meoMeoMeo.left >20){
+                meoMeoMeo.runLeft();
+                check2 = false;
+            }else if (meoMeoMeo.top < window.innerHeight && check2 === false && meoMeoMeo.top >30) {
+                meoMeoMeo.runUp();
+            }else{
+                check = true;
+                check2 = true;
+            }
+            document.getElementById("obj").innerHTML = meoMeoMeo.display();
+            setTimeout(start, 200);
+        }
+
+        start();
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 4: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không.
+        // Nếu là ký tự số hàm trả về true, ngược lại trả về false.
+
+        let kytu = prompt("Nhập 1 ký tự số/chữ/blah");
+        let bangKyTuSo = "0123456789";
+        alert( kiemTraKyTu(kytu));
+
+        function kiemTraKyTu() {
+            kytu.toString();
+            if ( bangKyTuSo.indexOf(kytu) !== -1 ){
+                return kytu + " là ký tự số";
+            } else{
+                return kytu + " không phải ký tự số";
+            }
+        }
+    </script>
+</body>
+</html>

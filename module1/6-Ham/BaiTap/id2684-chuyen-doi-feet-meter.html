@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>[Bài tập] Chuyển đổi giữa feet và meters</h3>
+    Feet <input type="number" id="feet" placeholder="Nhập số feet" oninput="toMet()" />
+    Meter <input type="number" id="met" placeholder="Nhập số mét" oninput="toFeet()" />
+    <span id="ketQua"></span>
+
+    <script>
+        function toMet() {
+            let feet = parseFloat(document.getElementById("feet").value);
+            document.getElementById("ketQua").innerText = 0.305*feet + " meter";
+        }
+
+        function toFeet() {
+            let met = parseFloat(document.getElementById("met").value);
+            document.getElementById("ketQua").innerText = 3.279* met + " feet";
+        }
+    </script>
+</body>
+</html>

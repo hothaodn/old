@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="color: darkblue; text-align: center;background-color: burlywood">
+        <h1>CARO GAME</h1>
+        <div id="board"></div>
+
+    <script>
+        /*Phát triển trò chơi cờ Ca-ro với các tính năng đơn giản được mô tả như sau:
+        Hiển thị bàn cờ với 20 dòng và 20 cột
+        Có 2 người chơi
+        Khi nhấn vào các ô còn trống thì lần lượt hiện lên dấu 'X' hoặc 'O' tuỳ theo lượt của người chơi
+        Nếu có 5 ô liền nhau là X hoặc O thì người chơi sở hữu hàng đó sẽ thắng
+        Các hàng có thể là ngang, dọc hoặc chéo */
+
+        let caroBoard = new Array(20);
+
+        for (let a = 0; a < caroBoard.length; a++ ){
+            caroBoard[a] = new Array(20);
+            for ( let b = 0; b < caroBoard[a].length; b++ ){
+                caroBoard[a][b] = "<button onclick='playXO(" +a+","+b + ")'>_.</button>";
+            }
+        }
+        document.getElementById("board").innerHTML = caroBoard.join("<br/>");
+
+
+        let count = 0;
+        function playXO(i,j) {
+            document.getElementById("board").innerHTML = "";
+            if ( count %2 === 0){
+                caroBoard[i][j] = "<button>X</button>";
+            } else {
+                caroBoard[i][j] = "<button>O</button>";
+            }
+            document.getElementById("board").innerHTML = caroBoard.join("<br/>");
+            count++;
+        }
+    </script>
+</body>
+</html>

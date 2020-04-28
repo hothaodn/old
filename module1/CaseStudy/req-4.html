@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Req 4</title>
+    <style>
+        table, th, td { color:black; font-weight: bold;border: 1px solid orangered;border-collapse: collapse;}
+        fieldset { text-align: center; border-style: dashed; background-color: white; opacity: 0.8; margin: 30px; }
+        body {
+            background-image: url("https://furamavillasdanang.com/wp-content/uploads/2016/10/Furama_Villas_Central_Pool.jpg");no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover; background-size: cover;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <img src="http://www.dongkhoitravel.com.vn/upload/product/furamresort-3272.png" width="150px" />
+    <fieldset >
+        <legend><h1 style="color:orangered">GUEST MANAGEMENT</h1></legend>
+        <button onclick="addCustomer()"> <h2>Add Customer</h2> <img src="https://icons.iconarchive.com/icons/aha-soft/people/256/user-group-icon.png" width="80"  /></button><br/>
+        <button onclick="deleteCustomer()"> <h3>Delete Customer</h3> <img src="https://icons.iconarchive.com/icons/aha-soft/people/256/user-group-icon.png" width="70"  /></button><br/>
+        <button onclick="makeABCList()"><b>Alphabetize List</b></button><br/>
+        <span id="inputName" ></span>
+        <center><span id="display" ></span></center>
+    </fieldset>
+
+    <script>
+        // ===============================REQUIREMENT 4.1===============================
+        let arrNameCustomers = ["Katy Ho","Huyen","Taylor Swift","Avril Lavigne","Katy Perry"];
+        function addCustomer() {
+            let numberGuesttoAdd = parseInt(prompt("How many customers do you want to add?"));
+            if ( numberGuesttoAdd > 0){
+                document.getElementById("inputName").innerHTML = '<label>Customer Name</label><input type="text" id="fullName"  placeholder="Ex: Katy Ho" />' +
+                    '<button onclick="saveCustomerName()" >Save</button><br/>'
+            }
+        }
+
+        function saveCustomerName() {
+            let fullName = document.getElementById("fullName").value;
+            fullName = formatText(fullName);
+            arrNameCustomers.push(fullName);
+            alert ("Just saved new customer: " + fullName);
+            document.getElementById("fullName").value = "";
+            displayCustomerList();
+        }
+
+        function deleteCustomer() {
+            let guestID = parseInt(prompt("Enter number to delete"));
+            if ( guestID > arrNameCustomers.length){
+                alert("Sorry. This number is not exist in list")
+            } else if (confirm("Are you sure to delete ?")){
+                arrNameCustomers.splice( guestID, 1);
+            }
+            displayCustomerList();
+        }
+
+        function displayCustomerList() {
+            let chart = "<table>";
+            chart += "<tr><td>" + "No." + "</td><td>" + "Guest Name" + "</td></tr>";
+            for ( let i = 0; i < arrNameCustomers.length; i++){
+                chart += "<tr><td>" + i + "</td><td>" + arrNameCustomers[i] + "</td></tr>";
+            }
+            chart += "</table>";
+            document.getElementById("display").innerHTML = chart;
+        }
+
+        // ===============================REQUIREMENT 4.2===============================
+        //Hiển thị danh sách tên Customers từ mảng arrNameCustomers được sắp xếp tăng dần theo thứ tự alphabel.
+        function makeABCList() {
+            arrNameCustomers.sort();
+            displayCustomerList();
+        }
+        //chuẩn hóa dữ liệu nhập vào
+        function formatText(fullName) {
+            let tempName = "";
+            fullName = fullName.trim().toLowerCase();
+            for ( let i = 0; i < fullName.length; i++){
+                if ( fullName.charAt(i) === " " && fullName.charAt(i+1) === " "){
+                    continue;
+                }
+                if( i === 0 || fullName.charAt(i-1) === " " ){
+                    tempName += fullName.charAt(i).toUpperCase();
+                    continue;
+                }
+                tempName += fullName.charAt(i);
+            }
+            return tempName;
+        }
+    </script>
+
+</body>
+</html>

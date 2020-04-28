@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="giayVe" width="900" height="600" style="border:2px solid royalblue" ></canvas>
+    <script>
+        /*Viết một lớp các đối tượng hình chữ nhật lấy tên là Rectangle, mỗi hình chữ nhật đều có những đặc tính sau:
+        + Có thông số chiều dài (int).
+        + Có thông số chiều rộng (int).
+        + Có tính năng tính diện tích.
+        + Có tính năng tính chu vi.
+        + Có tính năng hiển thị trực quan hình chữ nhật bằng cách vẽ lên canvas
+        Sử dụng lớp Rectangle vừa định nghĩa để viết một chương trình JavaScript  với kịch bản như sau:
+        Khai báo và khởi tạo một đối tượng kiểu Rectangle.
+        Hiển thị hình chữ nhật trên màn hình web
+        Thay đổi chiều dài và chiều rộng của hình chữ nhật.
+        In ra màn hình diện tích và chu vi của hình chữ nhật đó. */
+
+        let Rectangle = function (chieuDai,chieuRong) {
+            this.chieuDai = chieuDai;
+            this.chieuRong = chieuRong;
+
+            this.tinhDienTich = function (chieuDai,chieuRong) {
+                return chieuDai * chieuRong;
+            };
+
+            this.tinhChuVi = function (chieuDai,chieuRong) {
+                return (chieuDai * chieuRong)*2;
+            };
+
+            this.veHinhChuNhat = function (chieuDai,chieuRong) {
+                let ngang = document.getElementById("giayVe");
+                let duongThangNgang = ngang.getContext("2d");
+                duongThangNgang.moveTo(100,100);
+                duongThangNgang.lineTo(100+chieuDai,100);
+                duongThangNgang.stroke();
+
+                let ngang2 = document.getElementById("giayVe");
+                let duongThangNgang2 = ngang2.getContext("2d");
+                duongThangNgang2.moveTo(100,chieuRong);
+                duongThangNgang2.lineTo(100+chieuDai,chieuRong);
+                duongThangNgang2.stroke();
+
+                let doc = document.getElementById("giayVe");
+                let duongThangDoc = doc.getContext("2d");
+                duongThangDoc.moveTo(100,100);
+                duongThangDoc.lineTo(100,chieuRong);
+                duongThangDoc.stroke();
+
+                let doc2 = document.getElementById("giayVe");
+                let duongThangDoc2 = doc2.getContext("2d");
+                duongThangDoc2.moveTo(100+chieuDai,100);
+                duongThangDoc2.lineTo(100+chieuDai,chieuRong);
+                duongThangDoc2.stroke();
+
+            };
+        };
+        let x = new Rectangle(600,400);
+        x.veHinhChuNhat(600,400);
+        document.write( "<br/>Chu vi hình chữ nhật là: " + x.tinhChuVi(600,400) );
+        document.write( "<br/>Diện tích hình chữ nhật là: " + x.tinhDienTich(600,400) );
+    </script>
+</body>
+</html>

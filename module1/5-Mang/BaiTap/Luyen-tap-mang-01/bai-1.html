@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 1- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử.
+        // Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.
+
+        let mangBai1 = [];
+        let soLuongSoNguyenLonHon10 = 0;
+        let listSoLonHon10 = [];
+
+        for ( let i = 0; i < 10; i++ ){
+            mangBai1[i] = Math.floor(Math.random()*20);
+            if ( mangBai1[i] >= 10 ){
+                soLuongSoNguyenLonHon10++;
+                listSoLonHon10.push(mangBai1[i]);
+                }
+        }
+        document.write ( "Mảng random khởi tạo gồm 10 phần tử là: " + mangBai1.join(" - ")
+            + ", có " + soLuongSoNguyenLonHon10 + " số lớn hơn hoặc bằng 10 là số: " + listSoLonHon10.join(" - "));
+
+    </script>
+</body>
+</html>

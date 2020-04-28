@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    [Thực hành] Đảo ngược các phần tử trong mảng
+    Viết một chương trình JavaScript thực hiện đảo ngược các giá trị trong một mảng đã cho. Không sử dụng phương thức reverse() <br/>
+    <script>
+        let thucHanh2 = [-3,5,1,3,2,10,1,4,5,6,7,4,3,3,6];
+
+        //alert( thucHanh2.reverse() );
+
+        for ( let i = 0; i < thucHanh2.length/2; i++) { //đảo ngược 2 phần tử đối xứng, nên chia 2 độ dài
+            let head = thucHanh2[i]; //biến trung gian chứa tạm giá trị của phần tử ở đầu
+            thucHanh2[i] = thucHanh2[thucHanh2.length - i - 1]; //2 phần tử đối xứng ở đầu và đuôi của mảng
+            thucHanh2[thucHanh2.length - i - 1] = head; //gán các phần tử ở đuôi cho giá trị của các phần tử ở đầu
+        }
+            document.write( thucHanh2 + "<br/>" ); //hiển thị mảng
+
+        //cách 2: demo CodeGym
+        let x = [-3, 5, 1, 3, 2, 10];
+        let first = 0;
+        let last = x.length - 1;
+
+        while (first < last) {
+            let b = x[first];
+            x[first] = x[last];
+            x[last] = b;
+            first++;
+            last--;
+        }
+        document.write(x);
+    </script>
+</body>
+</html>

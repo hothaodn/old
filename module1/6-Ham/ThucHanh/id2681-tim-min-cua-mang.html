@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Xây dựng hàm nhận vào một tham số là một mảng cho trước. Hàm thực hiện tìm giá trị nhỏ nhất trong mảng và trả về giá trị đó.
+        Sử dụng hàm vừa xây dựng trên với mảng như sau: arr2:</p>
+
+    <script>
+        function timMin( mangKiemTra ) {
+            if ( mangKiemTra.length === 0 ){
+                return "Mảng rỗng nên ko có min";
+            } else {
+                let min = mangKiemTra[0];
+                for ( let i = 1; i < mangKiemTra.length; i++ ){
+                    if ( mangKiemTra[i] < min ){
+                        min = mangKiemTra[i];
+                    }
+                }
+                return min;
+            }
+        }
+
+        let arr1 = [3, 5, 1, 8, -3, 7, 8];
+        let arr2 = [7, 12, 6, 9, 20, 56, 89];
+        let arr3 = [];
+        let arr4 = [0, 0, 0, 0, 0, 0];
+
+        alert ( timMin(arr1) );
+        alert ( timMin(arr2) );
+        alert ( timMin(arr3) );
+        alert ( timMin(arr4) );
+
+    </script>
+</body>
+</html>

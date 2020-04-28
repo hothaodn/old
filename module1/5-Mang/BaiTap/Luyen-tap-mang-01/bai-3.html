@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 3- Viết chương trình khởi tạo mảng số nguyên.
+        //Hiển hiện giá trị lớn nhất trong mảng đó. In ra giá trị trung bình của các phần tử trong mảng.
+
+        let mangBai3 = [];
+        let maxCuaMang = 0;
+        let soLuongPhanTuMang = parseInt(prompt("Nhập số lượng phàn tử trong mảng:"));
+        let tongCacPhanTu = 0;
+        let giaTriTrungBinh = 0;
+
+        for ( let i = 0; i < soLuongPhanTuMang; i++ ){
+            mangBai3[i] = Math.floor(Math.random()*100);
+
+            if ( mangBai3[i] >= maxCuaMang ){
+                maxCuaMang = mangBai3[i];
+            }
+            tongCacPhanTu += mangBai3[i];
+        }
+        giaTriTrungBinh = tongCacPhanTu / soLuongPhanTuMang;
+
+        document.write ( "Mảng random khởi tạo gồm 10 phần tử là: " + mangBai3.join(" - ")
+            + ", có " + maxCuaMang + " là số lớn nhất của mảng. Giá trị trung bình của các phần tử trong mảng: " + giaTriTrungBinh);
+    </script>
+</body>
+</html>

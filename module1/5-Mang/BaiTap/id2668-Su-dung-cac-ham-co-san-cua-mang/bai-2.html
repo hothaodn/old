@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        //Bài 2: Viết một chương trình nhận một số nhập vào và chèn dấu (-) giữa 2  số chẵn
+        // Ví dụ nếu bạn nhập vào 025468 thì kết quả của chương trình sẽ là 0-254-6-8.
+        let number = prompt("Nhập 1 số bất kỳ từ 5 chữ số trở lên");
+        let chuoiSo = number.toString(); //ép number thành string
+        let chuoiSoMoi = [ chuoiSo[0] ]; //tạo 1 mảng mới để xuất kết quả
+
+        for ( let i = 1; i < chuoiSo.length; i++){ //i chạy từ 1 do mảng mới đã có mảng index 0
+            if ( chuoiSo[i-1] % 2 === 0 && chuoiSo[i] % 2 === 0 ){ //vòng lặp quét đến i thôi nên ko thể xét index i+1
+                chuoiSoMoi.push( " - " , chuoiSo[i]); //thêm mảng vào mảng mới chuoiSoMoi
+            } else {
+                chuoiSoMoi.push( chuoiSo[i]);
+            }
+        }
+        document.write( chuoiSoMoi.join(" ") ); // cách dấu cách để hiển thị cho đẹp
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Ví dụ mô phỏng sự hoạt động của một chiếc đèn pin.
+        // Trong ví dụ này ta có 2 lớp đối tượng cơ bản là Đèn (FlashLamp) và Pin (Battery).
+        // Đối tượng pin mang trong mình thông tin về trạng thái năng lượng của nó,
+        // đối tượng đèn sẽ sử dụng một đối tượng pin để cung cấp năng lượng cho hoạt động chiếu sáng,
+        // khi đó ta nói có sự tương tác và trao đổi thông tin giữa hai đối tượng đèn và pin.
+        let Battery = function(){
+            this.setEnergy = function (energy) {
+                this.energy = energy;
+            };
+            this.getEnergy = function(){
+              return this.energy;
+            };
+            this.decreaaseEnergy = function () {
+                this.energy--;
+            };
+        };
+
+        let FlashLamp = function () {
+            this.setBattery = function (battery) {
+                this.battery = battery;
+            };
+            this.getBatteryInfo = function () {
+                return this.battery.getEnergy(); //how to connect 2 obj
+            };
+            this.light = function () {
+                if(this.status){
+                    alert("lighting");
+                } else{
+                    alert("not lighting");
+                }
+            };
+            this.turnOn = function () {
+                this.status = true;
+                this.battery.decreaaseEnergy(); //bổ sung code: bật đền nên hao pin
+            };
+            this.turnOff = function () {
+                this.status = false;
+            }
+        };
+        //test
+        let cucPin = new Battery();
+        cucPin.setEnergy(10);
+
+        let denPin = new FlashLamp();
+        denPin.setBattery(cucPin);
+
+        document.write("start/checkinfo/not turn on yet/ Thông tin đèn pin: " + denPin.getBatteryInfo() + "<br/" + denPin.light());
+
+        document.write("turn on<br/>");
+        denPin.turnOn();
+        denPin.light();
+        document.write("after turn on / battery info: " + denPin.getBatteryInfo() + "<br/>");
+
+        document.write("turn off <br/>");
+        denPin.turnOff();
+        denPin.light();
+        document.write("after turn off/ battery info: " + denPin.getBatteryInfo() + "<br/>");
+        //test last
+        document.write("turn on<br/>");
+        denPin.turnOn();
+        denPin.light();
+        document.write("test-last/turning-on/ battery info: " + denPin.getBatteryInfo() + "<br/>");
+    </script>
+</body>
+</html>

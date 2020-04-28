@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let soNguyen = parseInt(prompt("Nhập số cần kiểm tra có phải số nguyên tố:"));
+        let flag = true; //biến cờ hiệu kèm giá trị mặc định
+
+        if ( soNguyen < 2){
+            flag = false;
+        } else if (soNguyen === 2) {
+            flag = true;
+        } else if (soNguyen % 2 === 0) {
+            flag = false;
+        } else{
+            for ( let i = 3; i < Math.sqrt(soNguyen); i++){
+                if (soNguyen % i === 0){
+                    flag = false;
+                    break;
+                }
+            }
+        }
+
+        if ( flag === true){
+            alert( soNguyen + " là số nguyên tố");
+        } else
+            alert( soNguyen + " không là số nguyên tố");
+    </script>
+</body>
+</html>

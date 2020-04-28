@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 3: Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi hàm vừa xây dựng được.
+        function tinhGiaiThua(a) {
+            let giaiThua = 1;
+            if ( a <= 0 || Number.isInteger(a) === false ){
+                return "Vui lòng nhập 1 số nguyên dương";
+            } else {
+                for ( let i = 1; i <= a; i++){
+                    giaiThua *= i;
+                }
+                return giaiThua;
+            }
+        }
+
+        let nhapSo = parseFloat( prompt("Nhập 1 số nguyên dương"));
+        alert ( tinhGiaiThua( nhapSo ));
+
+    </script>
+</body>
+</html>

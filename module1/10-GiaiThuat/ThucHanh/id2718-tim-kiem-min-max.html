@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //[Thực hành] Tìm kiếm giá trị lớn nhất hoặc nhỏ nhất
+        //tạo mảng ngẫu nhiên 10 phần tử
+        function randomArr() {
+            let arr = [];
+            for( let i = 0; i < 10; i++ ){
+                arr[i] = Math.floor(Math.random()*10+1)
+            }
+            return arr;
+        }
+        function findMin(arr) {
+            let min = arr[0];
+            let indexOfMin = 0;
+            for( let i = 0; i < arr.length; i++ ){
+                if ( min > arr[i] ){
+                    min = arr[i];
+                    indexOfMin = i + 1;
+                }
+            }
+            document.write("Dãy số random: " + arr + " có phần tử min là: " + min + " ở vị trí số " + indexOfMin);
+        }
+        function findMax(arr) {
+            let max = arr[0];
+            let indexOfMax = 0;
+            for( let i = 0; i < arr.length; i++ ){
+                if ( max < arr[i] ){
+                    max = arr[i];
+                    indexOfMax = i + 1;
+                }
+            }
+            document.write("<br/>Dãy số random: " + arr + " có phần tử max là: " + max + " ở vị trí số " + indexOfMax);
+        }
+        //test
+        let mang = randomArr();
+        findMin(mang);
+        findMax(mang);
+    </script>
+</body>
+</html>

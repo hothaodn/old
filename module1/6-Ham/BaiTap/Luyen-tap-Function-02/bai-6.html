@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 6: Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là nguyên dương không.
+        //Nếu là nguyên dương trả về true, ngược lại trả về false.
+
+        let soNhap = parseFloat(prompt( "Nhập số nguyên thứ 1:" ));
+        alert ( kiemTraNguyenDuong(soNhap) );
+
+        function kiemTraNguyenDuong(so) {
+            if ( Number.isInteger(so) === true && so > 0){
+                return so + " là số nguyên dương";
+            } else
+                return so + " không là số nguyên dương";
+        }
+
+    </script>
+</body>
+</html>

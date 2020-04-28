@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Puzzzle</title>
+</head>
+<body>
+    <img src="Puzzle photo/h1a.jpg" width='180px' id="hinh1" onclick="chuyenHinh(1)" />
+    <img src="Puzzle photo/h1b.jpg" width='200px' id="hinh1" onclick="chuyenHinh(2)" />
+    <img src="Puzzle photo/h1c.jpg" width='200px' id="hinh1" onclick="chuyenHinh(3)" />
+    <img src="Puzzle photo/h1d.jpg" width='200px' id="hinh1" onclick="chuyenHinh(4)" />
+
+    <img src="Puzzle photo/h2a.jpg" width='200px' id="hinh2" onclick="chuyenHinh(1)" />
+    <img src="Puzzle photo/h2b.jpg" width='200px' id="hinh2" onclick="chuyenHinh(2)" />
+    <img src="Puzzle photo/h2c.jpg" width='200px' id="hinh2" onclick="chuyenHinh(3)" />
+    <img src="Puzzle photo/h2d.jpg" width='200px' id="hinh2" onclick="chuyenHinh(4)" />
+
+
+    <script>
+        let hinh1 = document.getElementById("hinh1");
+        let hinh2 = document.getElementById("hinh2");
+
+        function chuyenHinh() {
+            switch (number) {
+                case 1:
+                    if (hinh1.getAttribute("src") === "Puzzle photo/h1a.jpg") {
+                        hinh1.src = "Puzzle photo/h2a.jpg";
+                    } else if (hinh1.getAttribute("src") === "Puzzle photo/h2a.jpg") {
+                        hinh1.src = "Puzzle photo/h1a.jpg";
+                    }
+                    break;
+
+                case 2:
+                    if (hinh2.getAttribute("src") === "Puzzle photo/h1b.jpg") {
+                        hinh2.src = "Puzzle photo/h2b.jpg";
+                    } else if (hinh2.getAttribute("src") === "Puzzle photo/h2b.jpg") {
+                        hinh2.src = "Puzzle photo/h1b.jpg";
+                    }
+                    break;
+
+            }
+            if ( hinh1.getAttribute("src") === "Puzzle photo/h1a.jpg" && hinh2.getAttribute("src") === "Puzzle photo/h1b.jpg"){
+                alert ( "OK" );
+            }
+        }
+
+    </script>
+</body>
+</html>

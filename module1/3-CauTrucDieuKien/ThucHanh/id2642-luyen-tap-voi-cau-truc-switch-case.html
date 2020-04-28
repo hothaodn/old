@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="https://james.codegym.vn/mod/assign/view.php?id=2642" target="blank">Link đề bài</a>
+
+    <script>
+        //Bài 3: Sử dụng cấu trúc if…else, nhập vào một số, kiểm tra giá trị của số nhập vào
+        let x=parseFloat(prompt("Nhập vào một số, để kiểm tra giá trị của số nhập vào: \ndùng lệnh if else"));
+        if(x>0) {
+            alert(1);
+            } else if (x == 0) {
+            alert(0);
+        }else {
+            alert(-1);
+        }
+        //dung switch
+        let y=parseFloat(prompt("Nhập vào một số, để kiểm tra giá trị của số nhập vào: \ndùng lệnh switch"));
+        switch(y){
+            case (y>0):
+                alert(1);
+                break;
+            case 0:
+                alert(0);
+                break;
+            default:
+                alert(-1);
+                break;
+        }
+
+        //Bài 2: Viết lại cấu trúc if sau thành cấu trúc switch
+        let a = parseFloat(prompt('a?', ''));
+        switch (a){
+            case 0:
+                alert(0);
+                break;
+            case 1:
+                alert(1);
+                break;
+            case 2:
+            case 3:
+                alert('2,3');
+                break;
+        }
+
+        Bài 1: Viết lại cấu trúc if sau thành cấu trúc switch
+        let browser=prompt("What is your browser");
+        switch (browser){
+            case 'Edge':
+                alert("You've got the Edge!");
+                break;
+            case 'Chrome':
+            case 'Firefox':
+            case 'Safari':
+            case 'Opera':
+                alert("Okay we support these browsers too");
+                break;
+            default :
+                alert("We hope that this page looks ok!");
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+</head>
+<body style="text-align: center; background-color: burlywood" >
+    <img src="https://png.pngtree.com/png-vector/20191022/ourlarge/pngtree-dictionary-icon-flat-style-png-image_1838277.jpg" width="200px"/><br/>
+    <h1 style="color: blue ">TỪ ĐIỂN VỀ MÀU SẮC</h1>
+
+    Nhập từ tiếng Anh cần tra > <input type="text" id="tuTiengAnh" />
+    <button onclick="lookUp()" >
+        <img src="https://icon-library.net/images/look-up-icon/look-up-icon-23.jpg" width="25px" />
+    </button>
+    <h1 id="ketQua" style="color: white "></h1>
+
+    <script>
+        let tuDienTiengAnh = [ "blue", "red", "yellow", "brown ", "green", "orange", "pink", "white", "black", "purple", "grey"] ;
+        let tuDienTiengViet = [ "xanh da trời", "đỏ", "vàng", "nâu", "xanh lá", "cam", "hồng", "trắng", "đen", "tím", "xám"];
+
+        let ketQua = "";
+
+        function lookUp() {
+            let tuTiengAnh = document.getElementById("tuTiengAnh").value ;
+            let viTriTu = tuDienTiengAnh.indexOf( tuTiengAnh);
+
+            for ( let i = 0 ; i < tuDienTiengAnh.length; i++){
+                if ( tuDienTiengAnh.indexOf( tuTiengAnh) !== -1) {
+                    ketQua = tuDienTiengViet[viTriTu];
+                    document.getElementById("ketQua").innerHTML = ketQua;
+                } else {
+                    document.getElementById("ketQua").innerHTML = "Sorry. Từ này không tìm thấy trong từ điển :( "
+                }
+            }
+        }
+    </script>
+
+
+</body>
+</html>

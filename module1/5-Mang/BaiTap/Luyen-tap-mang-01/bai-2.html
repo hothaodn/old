@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 2- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử khác nhau.
+        //Chương trình hiển thị ra được phần tử có giá trị lớn nhất trong mảng và vị trí của phần tử đó.
+
+        let mangBai2 = [];
+        let maxCuaMang = 0;
+        let viTriSoMax;
+
+        for ( let i = 0; i < 10; i++ ){
+            mangBai2[i] = Math.floor(Math.random()*100);
+
+            if ( mangBai2[i] >= maxCuaMang ){
+                maxCuaMang = mangBai2[i];
+                viTriSoMax = i ;
+            }
+        }
+        document.write ( "Mảng random khởi tạo gồm 10 phần tử là: " + mangBai2.join(" - ")
+            + ", có " + maxCuaMang + " là số lớn nhất của mảng, nằm ở vị trí " + viTriSoMax );
+    </script>
+</body>
+</html>

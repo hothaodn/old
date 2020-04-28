@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="giayVe" width="900" height="600" style="border:2px solid royalblue" ></canvas>
+    <script>
+        /*Viết một lớp các đối tượng hình chữ nhật lấy tên là Rectangle, mỗi hình chữ nhật đều có những đặc tính sau:
+        + Có thông số chiều dài (int).
+        + Có thông số chiều rộng (int).
+        + Có tính năng tính diện tích.
+        + Có tính năng tính chu vi.
+        + Có tính năng hiển thị trực quan hình chữ nhật bằng cách vẽ lên canvas
+        Sử dụng lớp Rectangle vừa định nghĩa để viết một chương trình JavaScript  với kịch bản như sau:
+        Khai báo và khởi tạo một đối tượng kiểu Rectangle.
+        Hiển thị hình chữ nhật trên màn hình web
+        Thay đổi chiều dài và chiều rộng của hình chữ nhật.
+        In ra màn hình diện tích và chu vi của hình chữ nhật đó. */
+
+        let Rectangle = function (chieuDai,chieuRong) {
+            this.chieuDai = chieuDai;
+            this.chieuRong = chieuRong;
+
+            this.tinhDienTich = function () {
+                return this.chieuDai * this.chieuRong;
+            };
+
+            this.tinhChuVi = function () {
+                return ( this.chieuDai * this.chieuRong)*2;
+            };
+
+            this.veHinhChuNhat = function () {
+                let c = document.getElementById("giayVe");
+                let ctx = c.getContext("2d");
+                ctx.fillStyle = "#00EE00";
+                ctx.fillRect(100,100,this.chieuDai,this.chieuRong);
+            };
+        };
+        let x = new Rectangle(600,400);
+        x.veHinhChuNhat();
+        document.write( "<br/>Chu vi hình chữ nhật là: " + x.tinhChuVi() );
+        document.write( "<br/>Diện tích hình chữ nhật là: " + x.tinhDienTich() );
+    </script>
+</body>
+</html>

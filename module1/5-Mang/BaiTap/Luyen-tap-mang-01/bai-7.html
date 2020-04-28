@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="number" id="soNguyen" />
+    <button onclick="nhapSo()" >Thêm phần tử trong mảng</button>
+    <button onclick="hienThiMang()" >Hiển thị mảng</button>
+    <button onclick="timTrongMang()" >Tìm số có nằm trong mảng ko?</button>
+    <button onclick="xoaSoKhoiMang()" >Xóa số khỏi mảng</button>
+
+    <p id="mang1"></p>
+    <p id="mang2"></p>
+    <p id="mang3"></p>
+
+    <script>
+    //Bài 7- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V.
+    // Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng đã cho xoá V khỏi mảng
+    // (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)
+
+        let mangBai3 = [];
+
+        function nhapSo() {
+            let soNguyen = document.getElementById("soNguyen").value ;
+            mangBai3.push(soNguyen);
+            document.getElementById("soNguyen").value = "";
+        }
+
+        function hienThiMang() {
+            document.getElementById("mang1").innerHTML = mangBai3.join(" - ");
+        }
+
+        //hàm check số có nằm trong mảng
+        function timTrongMang() {
+            let soNguyen = document.getElementById("soNguyen").value ;
+            if ( mangBai3.indexOf(soNguyen) !== -1){
+                document.getElementById("mang2").innerHTML = soNguyen + " is in the array";
+            } else {
+                document.getElementById("mang2").innerHTML = soNguyen + " is not in the array";
+            }
+        }
+
+        //xóa số ra khỏi mảng
+        function xoaSoKhoiMang() {
+            let soNguyen = document.getElementById("soNguyen").value ;
+            let viTriSoCanXoa = mangBai3.indexOf(soNguyen);
+
+            if ( viTriSoCanXoa !== -1){
+                for ( let i = viTriSoCanXoa + 1 ; i < mangBai3.length; i++){
+                    mangBai3[i-1] = mangBai3[i];
+                }
+                mangBai3.pop(); //xóa ô cuối cùng của mảng
+            }
+            document.getElementById("mang3").innerHTML = "Dãy số sau khi xóa: " + mangBai3.join(" - ");
+        }
+</script>
+</body>
+</html>

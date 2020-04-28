@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*Viết một lớp mô tả đối tượng điều khiển từ xa tivi lấy tên là Remote với những đặc điểm như sau:
+        Có thuộc tính mã.
+        Có tính năng điều khiển chuyển kênh.
+        Có tính năng điều khiển âm lượng.
+        Viết một lớp mô tả đối tượng tivi lấy tên là TiVi với những đặc điểm sau:
+        Có thuộc tính mô tả kênh hiện thời đang phát.
+        Có thuộc tính mô tả âm lượng hiện thời
+        Có thuộc tính mô tả trạng thái bật, tắt.
+        Có tính năng điều khiển chuyển đến kênh nào đó.
+        Có tính năng điều khiển âm lượng.*/
+        class Remote{
+            constructor(idRemote) {
+                this.id = idRemote;
+            }
+            getTivi(tivi){
+                this.tivi = tivi;
+            }
+            changeChannel(){
+                if ( this.tivi.status === true){
+                    this.numberOfChannel = parseInt(prompt("(đk từ remote) Bấm số trong danh sách kênh:\n" + this.tivi.channelList)) ;
+                    if ( this.numberOfChannel <= this.tivi.channel.length){
+                        this.tivi.numberOfChannel = this.numberOfChannel;
+                        return this.numberOfChannel;
+                    } else {
+                        alert("Kênh bạn chọn ko có trong danh sách")
+                    }
+                }
+            };
+            setVolume(){
+                if ( this.tivi.status === true){
+                    this.tivi.volume = parseInt(prompt("(đk từ remote) Nhập âm lượng từ 1-100:"));
+                    if ( this.tivi.volume >= 0 && this.tivi.volume <=100){
+                        return this.tivi.volume;
+                    }else{
+                        alert("Âm lượng ko nằm trong khoảng cho phép (1-100)");
+                    }
+                }
+            };
+            turnOnTv(){
+                this.tivi.status = true;
+            };
+            turnOffTv(){
+                if ( confirm("Bạn muốn tắt TV phải ko?")){
+                    this.tivi.status = false;
+                }
+            };
+        }
+        //===============================
+        class Tivi {
+            constructor(on_off,volume) {
+                this.channel = ["VTV3","VTV8","HTV3","MTV","HBO","Fox Movie","Cartoon Network","Channel V"];
+                this.status = on_off;
+                this.volume = volume;
+            }
+            getRemote(Remote){
+                this.Remote = Remote;
+            };
+            turnOnTv(){
+                this.status = true;
+            };
+            turnOffTv(){
+                if ( confirm("Bạn muốn tắt TV phải ko?")){
+                    this.status = false;
+                }
+            };
+            getStatus(){
+                if ( this.status === true ){
+                    alert("Tivi đang bật");
+                    if(confirm("Bạn muốn tắt TV chứ?")){
+                        this.turnOffTv();
+                    }
+                } else {
+                    alert("Tivi đang tắt");
+                    if(confirm("Bạn muốn bật TV chứ?")){
+                        this.turnOnTv();
+                    }
+                }
+            };
+            setVolume(){
+                if ( this.status === true){
+                    this.volume = parseInt(prompt("(đk từ tv) Nhập âm lượng từ 1-100:"));
+                    if ( this.volume >= 0 && this.volume <=100){
+                        return this.volume;
+                    }else{
+                        alert("Âm lượng ko nằm trong khoảng cho phép (1-100)");
+                    }
+                }
+            };
+            getVolume(){
+                alert("Âm lượng hiện tại là: " + this.volume);
+            };
+            changeChannel(){
+                if ( this.status === true){
+                    this.channelList = "";
+                    for ( let i = 0; i < this.channel.length; i++){
+                        this.channelList += i + " - " + this.channel[i] +"\n";
+                    }
+                    this.numberOfChannel = parseInt(prompt("(đk từ tv) Bấm số trong danh sách kênh:\n" + this.channelList)) ;
+                    if ( this.numberOfChannel <= this.channel.length){
+                        this.Remote.numberOfChannel = this.numberOfChannel;
+                        return this.numberOfChannel;
+                    } else {
+                        alert("Kênh bạn chọn ko có trong danh sách")
+                    }
+                }
+            };
+            getChannel(){
+                alert("Kênh đang bật là: " + this.channel[ this.numberOfChannel ]) ;
+            };
+
+        };
+
+        let dieuKhienTV = new Remote(999);
+        let sony = new Tivi(false,20);
+        sony.getRemote(dieuKhienTV);
+        dieuKhienTV.getTivi(sony);
+        // chạy kịch bản
+        sony.getStatus();
+        sony.changeChannel();
+        //dieuKhienTV.changeChannel();
+        sony.getChannel();
+        dieuKhienTV.changeChannel();
+        sony.getChannel();
+        dieuKhienTV.setVolume();
+        sony.getVolume();
+        sony.setVolume();
+        sony.getVolume();
+        dieuKhienTV.turnOffTv();
+        sony.getStatus()
+    </script>
+</body>
+</html>

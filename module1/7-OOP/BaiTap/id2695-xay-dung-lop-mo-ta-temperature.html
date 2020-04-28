@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let Temperature = function (a) {
+            this.doC = a;
+            this.doF = a;
+
+            this.chuyenCsangF = function () {
+                this.doF = ( this.doC * 1.8) + 32;
+                return this.doF;
+            };
+            this.chuyenFsangC = function () {
+                this.doC = ( this.doF - 32 )/1.8;
+                return this.doC;
+            };
+            this.hienThi = function () {
+                alert( "Nhiệt độ C: " + this.doC + " = Nhiệt độ F: " + this.doF);
+            };
+        };
+        //tạo object
+
+        let y;
+        let i = 0;
+        do {
+            y = parseFloat(prompt("Nhập nhiệt độ C để đổi ra F:"));
+            i++;
+        } while ( y < -273 );
+
+        let NhietDoC = new Temperature(y);
+        NhietDoC.chuyenCsangF();
+        NhietDoC.hienThi();
+
+        /*tạo object
+        let x = parseFloat(prompt("Nhập nhiệt độ F để đổi ra C:"));
+        let NhietDoF = new Temperature(x);
+        NhietDoF.chuyenFsangC();
+        NhietDoF.hienThi();
+           */
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <p>Viết một chương trình JavaScript để thêm vào các phần tử trong một mảng và hiển thị chúng.</p>
+    <h1 style="color: orangered">Sample Screen</h1>
+        <input type="text" id="nhapDuLieu" />
+        <button id="addMang" onclick="themPhanTu()" >Add</button>
+        <button onclick="hienThiMang()" >Display</button>
+        <p id="hienThi"></p>
+
+
+    <script>
+        let x = 0; //Tạo biến x và khởi tạo bằng 0, x là chỉ số truy cập tới các phần tử trong mảng
+
+        let array = Array();
+
+        /*Xây dựng hàm add_element_to_array() để thêm mới một phần tử từ form
+        Lấy giá trị từ input-text và gán phần tử ở vị trí x trong mảng mỗi lần hàm add_element_to_array() được gọi
+        Tăng giá trị x lên 1
+        Hiển thị phần tử vừa được thêm vào mảng
+        Gán giá trị rỗng cho input-text
+        Mã lệnh thực thi có thể như sau: */
+
+        function themPhanTu() {
+            array[x] = document.getElementById("nhapDuLieu").value;
+            alert("Element: " + array[x] + " Added at index " + x);
+            x++;
+            document.getElementById("nhapDuLieu").value = "";
+        }
+
+        /* Xây dựng hàm display_array() để hiển thị các phần tử trong mảng
+        Tạo biến e để lưu thẻ <hr> mỗi lần hiển thị một phần tử thẻ <hr> sử dụng để phân cách các phần tử trong mảng: var e = "<hr/>"
+        Dùng vòng lặp for duyệt toàn bộ mảng: for (var i=0; i<array.length; i++)
+        Mỗi lần duyệt lấy giá trị của các phần tử cộng dồn vào biến e. Thêm thẻ <br/> cuối mỗi lần duyệt.
+        Kết thúc lặp. Hiển thị biến e
+        */
+        function hienThiMang() {
+            let e = "<hr/>";
+            for (let i = 0; i < array.length; i++) {
+                e += "Element " + i + " = " + array[i] + "<br/>";
+            }
+            document.getElementById("hienThi").innerHTML = e;
+        }
+    </script>
+</body>
+</html>

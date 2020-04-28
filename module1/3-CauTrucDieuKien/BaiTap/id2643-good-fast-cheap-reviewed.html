@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>good-fast-cheap</title>
+</head>
+<body>
+    <div style="background-color: bisque">
+        <input type="radio" id="good" onclick="game(1)"/>GOOD
+        <br/>
+        <input type="radio" id="fast" onclick="game(2)"/>FAST
+        <br/>
+        <input type="radio" id="cheap" onclick="game(3)"/>CHEAP
+        <br/>
+    </div>
+
+    <script>
+        let go = document.getElementById("good");
+        let fa = document.getElementById("fast");
+        let ch = document.getElementById("cheap");
+        let chiso;
+
+        function game(chiso) {
+            if (chiso  === 1) {
+                if ( fa.checked && ch.checked ) //2 cái fast&cheap đang đc check
+                    fa.checked = false; //click vào good thì 2 cái fast&cheap đang check thì sẽ nhả check 1 trong 2 cái
+            } else if (chiso  === 2) {
+                if (go.checked && ch.checked)
+                    ch.checked = false;
+            } else if (chiso  === 3) {
+                if (go.checked && fa.checked )
+                    go.checked = false;
+            }
+        }
+        /* bài làm cũ bị sai
+        function game(chiso) {
+            if (chiso  === 1) {
+                if ( fa.checked === true && ch.checked === true )
+                    go.checked === false; //ko dùng toán tử so sánh, mà dùng phép gán
+            } else if (chiso  === 2) {
+                if (go.checked === true && ch.checked === true)
+                    fa.checked === false;
+            } else if (chiso  === 3) {
+                if (go.checked === true && fa.checked === true)
+                    ch.checked === false;
+            }
+        }
+        */
+    </script>
+</body>
+</html>

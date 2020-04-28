@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //chưa hiểu đề
+        //Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.
+        let nhapSo1 = parseFloat(prompt( "Nhập số nguyên thứ 1:" ));
+        let nhapSo2 = parseFloat(prompt( "Nhập số nguyên thứ 2:" ));
+        alert ( doiCho2SoNguyen( nhapSo1, nhapSo2) );
+
+        function doiCho2SoNguyen(so1,so2) {
+            alert("2 số đã nhập có thứ tự là " + so1 + " và " + so2);
+            let box = so1;
+            so1 = so2;
+            so2 = box;
+            return "2 số đã đổi chỗ: " + so1 + " và " + so2;
+        }
+    </script>
+</body>
+</html>

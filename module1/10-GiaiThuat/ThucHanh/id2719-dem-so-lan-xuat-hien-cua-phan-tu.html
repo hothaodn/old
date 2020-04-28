@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function count(arr, data) {
+            var count = 0;
+            var position = binSearch(arr, data);
+            if (position > -1) {
+                ++count;
+                for (var i = position-1; i > 0; --i) {
+                    if (arr[i] == data) {
+                        ++count;
+                    }
+                    else {
+                        break;
+                    }
+                }
+
+                for (var i = position+1; i < arr.length; ++i) {
+                    if (arr[i] == data) {
+                        ++count;
+                    }
+                    else {
+                        break;
+                    }
+                }
+            } //end if
+            return count;
+        }
+        count([1,2,3,3,3,4],3)
+    </script>
+</body>
+</html>

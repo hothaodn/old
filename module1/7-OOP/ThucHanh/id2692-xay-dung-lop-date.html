@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //b1
+        let MyDate = function (d, m, y) {
+            this.day = d;
+            this.month = m;
+            this.year = y;
+
+            //b2: method trả về ngày tháng năm
+            this.getDay = function () {
+                return this.day;
+            };
+            this.getMonth = function () {
+                return this.month;
+            };
+            this.getYear = function () {
+                return this.year;
+            };
+
+            //b3: method thiết đặt lại property ngày tháng năm
+            this.setDay = function (d) {
+                this.day = d;
+            };
+            this.setMonth = function (m) {
+                this.month = m;
+            };
+            this.setYear = function (y) {
+                this.year = y;
+            };
+
+            this.setDate = function () {
+                return d + '/' + m + '/' + y;
+            }
+        };
+
+        //b4.sử dụng lớp vừa tạo
+        let dateee = new MyDate(4,9,1992);
+        //b5.truy cập method của lớp date
+        let day1 = dateee.getDay();
+        let month1 = dateee.getMonth();
+        let year1 = dateee.getYear();
+        //b6: test hiển thị ko?
+        alert ("I was born on " + day1 + "/" + month1 + "/" + year1 )
+
+        //b8: call method reset ngày tháng năm sinh
+        dateee.setDay(15);
+        dateee.setMonth(2);
+        dateee.setYear(2020);
+
+        day1 = dateee.getDay();
+        month1 = dateee.getMonth();
+        year1 = dateee.getYear();
+        alert ("Today is " + day1 + "/" + month1 + "/" + year1);
+
+        alert( dateee.setDate());
+
+        //Bước 9: Cài đặt thêm phương thức setDate() để thiết đặt lại ngày, tháng, năm
+        // cho đối tượng MyDate và phương thức toString() để trả về chuỗi ngày tháng năm theo định dạng dd/mm/yyyy.
+
+    </script>
+</body>
+</html>

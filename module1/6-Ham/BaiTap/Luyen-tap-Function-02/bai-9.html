@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.
+        // Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.
+
+        let mang = [];
+
+        function timKiem() {
+            let kyTuBatKy = Math.floor(Math.random()*10)
+
+            for ( let i = 0; i < 10; i++){
+                mang[i] = Math.floor(Math.random()*5);
+            }
+
+            let count = 0;
+            for ( let i = 0; i < mang.length; i++){
+                if ( kyTuBatKy === mang[i] ){
+                    count++;
+                }
+            }
+            if ( count <= 0 ){
+                alert( "-1 \nMảng đã tạo: " + mang + "\nKý tự " + kyTuBatKy + " KHÔNG có trong mảng đã tạo");
+            } else
+                alert( "Mảng đã tạo: " + mang + "\nKý tự " + kyTuBatKy + " có số lần xuất hiện là " + count);
+        }
+
+        timKiem();
+    </script>
+</body>
+</html>

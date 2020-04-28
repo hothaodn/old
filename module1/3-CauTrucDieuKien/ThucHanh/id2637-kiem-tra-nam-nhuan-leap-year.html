@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Leap Year</title>
+</head>
+<body>
+    <h1>Is this Leap year?</h1>
+
+    <!--Những năm chia hết cho 4 mà không chia hết cho 100 là năm nhuận
+    Những năm chia hết cho 100 mà không chia hết cho 400 thì KHÔNG PHẢI là năm nhuận
+    Những năm chia hết đồng thời cho 100 và 400 là năm nhuận-->
+
+    <script>
+
+        var x=prompt("Nhập năm muốn tính năm nhuận: ");
+
+        if(x %4==0){
+            if(x %100==0){
+                if(x %400==0)
+                    alert(x+" là năm nhuận");
+                    else
+                        alert(x+" không là năm nhuận");
+            } else
+                alert(x+" là năm nhuận");
+
+        } else alert(x+" không là năm nhuận");
+
+
+    </script>
+
+
+</body>
+</html>

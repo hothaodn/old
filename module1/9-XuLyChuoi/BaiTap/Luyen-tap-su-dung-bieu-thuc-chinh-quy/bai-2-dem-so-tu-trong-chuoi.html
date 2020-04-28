@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Bài 2: Đếm số từ trong một chuỗi
+        function countWords(sentence) {
+            let patt2 = /(\s*[a-z]+\s*|\s+[a-z]+$)/ig;
+            let wordAppear = sentence.match(patt2);
+            document.write(sentence + " => tách " + wordAppear
+                + " => có " + wordAppear.length + " phần tử<br/>");
+        }
+        countWords("I    will  go   to school next month");
+        countWords("blue dog eats apple?!!");
+        countWords("fat white cat");
+        countWords("34545    test     w45ttt6hte    how    many   c&&at   #$%#");
+
+        //countLetters("");
+    </script>
+</body>
+</html>

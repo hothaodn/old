@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="text-align: center" >
+
+    <script>
+        //Vẽ trái tim
+
+        //vẽ khối chóp cong
+        for ( let i1 = 1; i1 <= 3; i1++){
+            for ( let i2 = 1; i2 <= i1; i2++){ //vẽ khối chóp thứ 1
+                document.write( " * * * ");
+            }
+            for ( let i2 = 1; i2 <= 3 - i1; i2++){ //vẽ khoảng trống
+                document.write( " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ");
+
+            } for ( let a = 1; a <= i1; a++) { //vẽ khối chóp thứ 2
+                document.write(" * * * ");
+            }
+
+            document.write( "<br/>");
+        }
+
+        //vẽ khối phình ở giữa
+        for ( let bodyDocTraiTim = 1; bodyDocTraiTim <= 2; bodyDocTraiTim++){
+            for ( let bodyNgangTraiTim = 1; bodyNgangTraiTim <= 19; bodyNgangTraiTim++){
+                document.write(" * ");
+            } document.write("<br/>");
+        }
+
+        //vẽ đít nhọn
+        for ( let bottomDocTraiTim = 1; bottomDocTraiTim <= 11; bottomDocTraiTim++ ){
+            for ( let bottomNgangTraiTim = 1; bottomNgangTraiTim <= (19 - 3*bottomDocTraiTim); bottomNgangTraiTim++){
+                document.write(" * ");
+            } document.write("<br/>");
+        }
+    </script>
+</body>
+</html>

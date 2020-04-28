@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DoYouLoveMe</title>
+</head>
+<body>
+    <img src="https://media.tenor.com/images/cb2e4733f35eec8809336ae2df43083b/tenor.gif" width="500px" />
+    <br/>
+    <button onclick="alert('Oh really? :D')" >YES</button>
+    <button id="no" onmouseover="clickNo()" style="position: absolute; left: 600;top: 600;" >NO</button>
+
+    <script>
+        function clickNo() {
+            let x = Math.random()*window.innerWidth;
+            let y = Math.random()*window.innerHeight;
+            document.getElementById("no").style.left=x+'px';
+            document.getElementById("no").style.top=y+"px"
+        }
+    </script>
+
+</body>
+</html>

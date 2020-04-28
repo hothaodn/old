@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //Question 2
+        let iMax = 20;
+        let jMax = 10;
+        let f = new Array();
+
+        for (i = 0; i < iMax; i++) {
+            f[i] = new Array();
+            for (j = 0; j < jMax; j++) {
+                f[i][j] = 0;
+            }
+        }
+
+        //Question 3
+        let x = [2,4,6,3,7];
+        let y = x.length - 2;
+        console.log(x[y]);
+
+        //Question 4
+        let x = [2, 4, 5];
+        let counter = 0;
+        if (x[counter] < 5) {
+            console.log('code');
+        } else {
+            console.log('gym');
+        }
+
+        ////Question 5
+        let x = [2, 4, 5];
+        let counter = 2;
+
+        if (x[counter] > 10) {
+            console.log('code');
+        } else {
+            console.log('gym');
+        }
+
+        //Question 6
+        let x = [];
+        for (var i = 0; i < 10; i++) {
+            x.push(i * 2);
+        }
+        console.log(x);
+
+        //Question 7
+        let x = [1, 3, 5, 8];
+        for (let i = 0; i < x.length; i++) {
+            if (x[i] > 4) {
+                x[i] = 0;
+            }
+        }
+        console.log(x);
+
+        //Question 8
+        let x = [1,3,5,8];
+        x.pop();
+        x.push(7);
+        console.log(x);
+    </script>
+</body>
+</html>

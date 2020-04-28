@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //để kiểm tra xem một số nguyên bất kỳ có phải là số nguyên tố hay không.
+        // Sử dụng phương thức này để tìm tất cả các số nguyên tố nhỏ hơn 10000.
+
+        function kiemTraSoNguyenTo(number) {
+            if (number === 2) {
+                return true;
+            } else if (number % 2 === 0) {
+                return false;
+            } else {
+                for (let i = 3; i < number; i++) {
+                    if (number % i === 0) {
+                        return false;
+                        break;
+                    }
+                }
+            }
+            return true;
+        }
+
+        let so = 2;
+        let ketQua = "";
+        while ( so < 10000){
+            if ( kiemTraSoNguyenTo(so)){
+                ketQua += so + " - ";
+            }
+            so++ ;
+        }
+        document.write( ketQua);
+    </script>
+</body>
+</html>

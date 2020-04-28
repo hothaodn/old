@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game đoán số</title>
+</head>
+<body>
+    <h1>GUESS LUCKY NUMBER</h1>
+    <h3>Guest one number from 1 to 100 <input type="number" id="number"/>
+        <button onclick="guestNumber()">Guess</button></h3>
+        <p>You will have 6 times to guess. Let's play!</p>
+        <p id="display"></p>
+    <script>
+        let arr = [];
+        for( let i = 0; i < 5; i++){
+            arr[i] = Math.floor(Math.random()*100+1);
+        }
+        let luckyNumber = arr[3];
+
+        let count = 1;
+        function guestNumber() {
+            let number = document.getElementById("number").value;
+            if(number !== ""){
+                if(number == luckyNumber){
+                    document.getElementById("display").innerHTML= "Time "+count+": "+ number+ ". You win!!!";
+                }else if(number > luckyNumber){
+                    document.getElementById("display").innerHTML= "Time "+count+": "+number+ ". Your number is too high";
+                }else if(number < luckyNumber){
+                    document.getElementById("display").innerHTML= "Time "+count+": "+number+ ". Your number is too Low";
+                }
+            }
+            count++;
+            if ( count > 6 ){
+                alert("Game over\nLucky number is " + luckyNumber);
+            }
+        }
+    </script>
+</body>
+</html>

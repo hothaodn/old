@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Viết một chương trình JavaScript để thêm vào các phần tử trong một mảng và hiển thị chúng.</p>
+    <h1 style="color: orangered">Sample Screen</h1>
+    Input the value <input type="text" id="nhapDuLieu" />
+    <button onclick="themPhanTu()" >Add</button>
+    <button onclick="hienThiMang()" >Display</button>
+    <button onclick="resetMang()" >Reset</button> <br/>
+
+    <button onclick="xoaPhanTu()" >Delete</button>the value at item number <input type="text" id="nhapDuLieu2" />
+
+    <p id="hienThi"></p>
+
+    <script>
+        let mangHienThi = [ ];
+        let hienThi;
+
+        //thêm phần tử vào mảng
+        function themPhanTu(){
+            let nhapDuLieu = document.getElementById("nhapDuLieu").value;
+            mangHienThi.push( nhapDuLieu);
+            alert( "Value is: " + nhapDuLieu);
+            document.getElementById("nhapDuLieu").value = "";
+        }
+
+        //hiển thị mảng
+        function hienThiMang() {
+            hienThi = "";
+            for ( let i = 0; i < mangHienThi.length; i++ ){
+                hienThi += "Item " + i + ": " + mangHienThi[i] + "<hr/>";
+                document.getElementById("hienThi").innerHTML = hienThi ;
+            }
+        }
+
+        //xóa tất cả các phần tử trong mảng
+        function resetMang() {
+            for ( let j = 1; j <= mangHienThi.length; j++ ){
+                mangHienThi.shift();
+                mangHienThi.pop();
+            }
+            hienThi = "";
+            document.getElementById("hienThi").innerHTML = "Reset";
+        }
+
+        /*xóa phần tử
+        function xoaPhanTu() {
+            let viTriPhanTu = parseInt( document.getElementById("nhapDuLieu2").value );
+            for ( let a = 0; a < mangHienThi.length; a++){
+                switch ( viTriPhanTu ) {
+                    case 0:
+                        mangHienThi.shift();
+                        break;
+                    case (mangHienThi.length - 1):
+                        mangHienThi.pop();
+                        break;
+                    default:
+                        for ( let b = 0; b < ( mangHienThi.length - viTriPhanTu) ; b++){
+                            mangHienThi [ viTriPhanTu + b ] = "";
+                            mangHienThi [ viTriPhanTu + b] = mangHienThi [ viTriPhanTu + b ].concat(mangHienThi [ viTriPhanTu + b + 1]);
+                        }
+                        mangHienThi.pop();
+            }
+        } */
+</script>
+
+</body>
+</html>

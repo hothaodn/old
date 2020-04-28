@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Requirement 2</title>
+    <style>
+        p, table, button { color:black; font-weight: bold}
+        fieldset { border-style: dashed; background-color: white; opacity: 0.8; margin: 30px; }
+        fieldset label{ margin: 5%; font-weight: bold; color: black;}
+        body {
+            background-image: url("https://furamavillasdanang.com/wp-content/uploads/2016/10/beach-front-villas-exterior-1-1.jpg");
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="color:saddlebrown; text-align: center">WELCOME TO FURAMA RESOST !</h1>
+
+    <fieldset>
+        <legend><h3>Personal Information</h3></legend>
+
+        <label>Full Name*</label><input type="text" id="fullName"/><br/>
+
+        <label>Identify Number</label><input type="text" id="idNumber"/><br/>
+
+        <label>Date of Birth</label><input type="date" id="dateOfBirth"/><br/>
+
+        <label>Email*</label><input type="email" id="email"/><br/>
+
+        <label>Address*</label><input type="text" id="address"/>
+            City:<select id="addressCity">
+                <option>Đà Nẵng</option>
+                <option>Huế</option>
+                <option>Quảng Nam</option>
+                <option>Others</option>
+            </select> <br/>
+
+    </fieldset>
+
+    <fieldset>
+        <legend><h3>Booking</h3></legend>
+        <label>Customer Type</label>
+            <select id="typeCustomer">
+                <option>Member</option>
+                <option>Silver</option>
+                <option>Gold</option>
+                <option>Platinum</option>
+                <option>Diamond</option>
+            </select> <br/>
+
+        <label>Discount (%)</label><br/>
+
+        <label>Number of Guests</label><input type="number" id="numGuest"/><br/>
+
+        <label>Number of Nights*</label><input type="number" id="numNight"/><br/>
+
+        <label>Type of Room*</label>
+        <select id="typeRoom">
+            <option>Villa</option>
+            <option>House</option>
+            <option>Room</option>
+        </select> <br/>
+
+        <label>Type of Service</label>
+            <select id="typeService">
+                <option>Normal</option>
+                <option>Business</option>
+                <option>V.I.P.</option>
+            </select> <br/>
+
+        <table style="width:400px; margin: 5%;"  border="1">
+            <caption>Room Rate</caption>
+            <thead>
+            <td style="width:40%"> Room Type </td>
+            <td style="width:60%"> Price (per night) </td>
+            </thead>
+
+            <tbody>
+            <td>Villa</td>
+            <td>500$</td>
+            </tbody>
+
+            <tbody>
+            <td>House</td>
+            <td>300$</td>
+            </tbody>
+
+            <tbody>
+            <td>Room</td>
+            <td>100$</td>
+            </tbody>
+        </table>
+
+        <h2 id = "hienthiThongTin"></h2>
+        <h2 id = "hienthi"></h2>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+        <button type="button" onclick = "haveToPay()">Submit</button>
+        <button type="button" onclick = "editInfo()">Edit Info</button>
+
+    </fieldset>
+
+    <script>
+
+     // REQUIREMENT 2 - TASK 3
+        function haveToPay() {
+        //giảm theo địa chỉ
+            let discountAddress, discountNumNight, discountCustomer;
+                let addressCity = document.getElementById("addressCity").value;
+                switch (addressCity) {
+                    case "Đà Nẵng":
+                        discountAddress = 20;
+                        break;
+                    case "Huế":
+                        discountAddress = 10;
+                        break;
+                    case "Quảng Nam":
+                        discountAddress = 5;
+                        break;
+                    default:
+                        discountAddress = 0;
+                }
+
+        //giảm theo thời gian lưu trú
+            let getNumNight = parseInt(document.getElementById("numNight").value) ; //so ngay o
+                if ( getNumNight > 7){
+                    discountNumNight = 30;
+                } else if ( getNumNight > 5 ){
+                    discountNumNight = 20;
+                } else if ( getNumNight > 2 ){
+                    discountNumNight = 10;
+                } else
+                    discountNumNight = 0;
+
+         //giảm theo loại Customer
+
+                let typeCustomer = document.getElementById("typeCustomer").value;
+                switch (typeCustomer) {
+                    case "Diamond":
+                        discountCustomer = 15;
+                        break;
+                    case "Platinum":
+                        discountCustomer = 10;
+                        break;
+                    case "Gold":
+                        discountCustomer = 5;
+                        break;
+                    case "Silver":
+                        discountCustomer = 2;
+                        break;
+                    default:
+                        discountCustomer = 0;
+                }
+
+        // tính tổng giảm giá
+            let totalDiscount = discountAddress + discountNumNight + discountCustomer;
+
+        //tính tổng giá phòng
+            let gettypeRoom = document.getElementById('typeRoom').value; //loai phong
+            const rateVilla = 500 ; //tien thue villa 500dollars/night
+            const rateHouse = 300 ; //tien thue house 300dollars/night
+            const rateRoom = 100 ; //tien thue room 100dollars/night
+            let totalPay = rateHouse * getNumNight * ( 1 - totalDiscount ); //tong so tien phai tra
+
+            switch (gettypeRoom){
+                case 'House':
+                    totalPay = rateHouse * getNumNight - totalDiscount;
+                    break;
+                case 'Villa':
+                    totalPay = rateVilla * getNumNight - totalDiscount;
+                    break;
+                case 'Room':
+                    totalPay = rateRoom * getNumNight - totalDiscount;
+                    break;
+            }
+            document.getElementById("hienthi").innerHTML = "Total Amount: " + totalPay + "$ for " + gettypeRoom
+                + " in " +getNumNight + " night(s)" + " , applied discount is " + totalDiscount + "$";
+
+
+        //REQUIREMENT 2 - TASK 1: hien thi tat ca thong tin user da nhap
+            document.getElementById("hienthiThongTin").innerHTML =
+                "Hello Mr./Ms. " + document.getElementById('fullName').value + "<br/>"
+                + "Identify Number is " + document.getElementById('idNumber').value
+                + " and date of birth is " + document.getElementById('dateOfBirth').value
+                + ". Your email: " + document.getElementById('email').value
+                + " and address is " + document.getElementById('address').value + addressCity + "<br/>";
+
+        }
+
+        // REQUIREMENT 2 - task 2
+
+        function editInfo() {
+            //alert ("Which information do you want to edit?");
+            let menuNumber = parseInt(prompt("Which information do you want to edit? \nPlease choose the number and then re-fill the form: \n1-Full Name \n2-Identify Number " +
+                "\n3-Date of Birth \n4-Email \n5-Address \n6-Customer Type \n7-Number of Guests \n8-Number of Nights \n9-Type of Room \n10-Type of Service"));
+
+            switch ( menuNumber ) {
+                case 1:
+                    document.getElementById('fullName').value = "";
+                    break;
+                case 2:
+                    document.getElementById('idNumber').value = "";
+                    break;
+                case 3:
+                    document.getElementById('dateOfBirth').value = "";
+                    break;
+                case 4:
+                    document.getElementById('email').value = "";
+                    break;
+                case 5:
+                    document.getElementById('address').value = "";
+                    break;
+                case 6:
+                    document.getElementById('typeCustomer').value = "";
+                //case 7:
+                    //document.getElementById('discount').value = "";
+                    //break;
+                case 7:
+                    document.getElementById('numGuest').value = "";
+                    break;
+                case 8:
+                    document.getElementById('numNight').value = "";
+                    break;
+                case 9:
+                    document.getElementById('typeRoom').value = "";
+                    break;
+                case 10:
+                    document.getElementById('typeService').value = "";
+                    break;
+                default:
+                    alert("Failed");
+            }
+        }
+    </script>
+
+</body>
+</html>

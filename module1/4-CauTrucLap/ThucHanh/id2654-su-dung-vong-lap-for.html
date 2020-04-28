@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Sử dụng vòng lặp for</title>
+</head>
+<body>
+
+    <h2 id="hienthi"></h2>
+    <script>
+        /*Bài 1: Viết chương trình hiển thị chuỗi “The number is N” 5 lần sử dụng vòng lặp for. Với N sẽ hiển thị từ 0 đến 5.
+        for ( let i = 0; i <= 5; i++){
+            let n = i;
+            document.write("The number is " + n +"<br/>");
+        }
+
+        */
+
+        //cach2:
+        let text = "";
+        for ( let j = 0; j <= 5; j++) {
+            text += "The number is " + j + "<br>";
+        }
+            document.getElementById("hienthi").innerHTML = text;
+
+
+    </script>
+
+
+
+</body>
+</html>

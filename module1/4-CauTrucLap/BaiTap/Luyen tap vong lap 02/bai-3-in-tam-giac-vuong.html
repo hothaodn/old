@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="color: blue " >
+    <script>
+        //In tam giác vuông. Các góc vuông nằm ở các vị trí khác nhau
+        //hình 1
+
+        for ( let i1 = 1; i1 <= 5; i1++){
+            for ( let j1 = 1; j1 <= i1; j1++){
+                document.write( " * ");
+            }
+            document.write( "<br/>");
+        }
+        document.write( "<br/>");
+
+        //hình 2
+        for (let i2 = 0; i2 <= 5 ; i2++) {
+            for (let j2 = 1; j2 <= (5 - i2); j2++) {
+                document.write(" * ");
+            }
+            document.write("<br/>");
+        }
+
+        //hình 3
+            for (let i3 = 0; i3 <= 4 ; i3++) {
+                for (let j3 = 1; j3 <= (4 - i3); j3++) {
+                    document.write(" &nbsp;&nbsp; ");
+                }
+                    for (let j33 = 0; j33 <= i3; j33++) {
+                        document.write( " * ");
+                    }
+                document.write( "<br/>");
+            } document.write("<br/>");
+
+        //hình 4
+        for ( let i4 = 0; i4 <= 4; i4++){
+            for ( let j4 = 0; j4 <= i4; j4++){
+                document.write( " &nbsp;&nbsp; ");
+            }
+                for (let j44 = 1; j44 <= 5 - i4; j44++) {
+                    document.write( " * ");
+                }
+            document.write( "<br/>");
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task 1</title>
+    <style>
+        h3, caption { color:steelblue }
+        label, p { color:orangered}
+        fieldset  { border-style: dashed }
+    </style>
+</head>
+<body>
+
+    <h1 style="color:saddlebrown">WELCOME TO FURAMA RESOST !</h1>
+    <img src="https://furamavillasdanang.com/wp-content/uploads/2016/10/Furama_Villas_Central_Pool.jpg" width="250px" />
+    <img src="https://furamavillasdanang.com/wp-content/uploads/2016/10/beach-front-villas-exterior-1-1.jpg" width="250px" />
+
+    <fieldset>
+        <legend><h3>Personal Information</h3></legend>
+
+        <label>Full Name*</label>
+        <input type="text" id="fullName"/><br/>
+
+        <label>Identify Number*</label>
+        <input type="text" id="idNumber"/><br/>
+
+        <label>Date of Birth*</label>
+        <input type="date" id="dateOfBirth"/><br/>
+
+        <label>Email*</label>
+        <input type="email" id="email"/><br/>
+
+        <label>Address*</label>
+        <input type="text" id="address"/><br/>
+    </fieldset>
+
+    <fieldset>
+        <legend><h3>Booking</h3></legend>
+        <label>Customer Type</label>
+            <select id="typeCustomer">
+                <option>Member</option>
+                <option>Silver</option>
+                <option>Gold</option>
+                <option>Platinum</option>
+                <option>Diamond</option>
+            </select> <br/>
+
+        <label>Discount (%)*</label>
+        <input type="number" id="discount"/><br/>
+
+        <label>Number of Guests</label>
+        <input type="number" id="numGuest"/><br/>
+
+        <label>Number of Nights*</label>
+        <input type="number" id="numNight"/><br/>
+
+        <label>Type of Room*</label>
+        <select id="typeRoom">
+            <option>Villa</option>
+            <option>House</option>
+            <option>Room</option>
+        </select> <br/>
+
+        <label>Type of Service</label>
+            <select id="typeService">
+                <option>Normal</option>
+                <option>Business</option>
+                <option>V.I.P.</option>
+            </select> <br/>
+
+        <table style="width:400px"  border="1">
+            <caption>Room Rate</caption>
+            <thead>
+            <td style="width:40%"> Room Type </td>
+            <td style="width:60%"> Price (per night) </td>
+            </thead>
+
+            <tbody>
+            <td>Villa</td>
+            <td>500$</td>
+            </tbody>
+
+            <tbody>
+            <td>House</td>
+            <td>300$</td>
+            </tbody>
+
+            <tbody>
+            <td>Room</td>
+            <td>100$</td>
+            </tbody>
+        </table>
+    </fieldset>
+    <p id = "hienthiThongTin"></p>
+    <p id = "hienthi"></p>
+
+    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+    <button type="button" onclick = "haveToPay()">Submit</button><br/><br/>
+
+
+
+
+    <script>
+        //REQUIREMENT 1
+        // Hiển thị toàn bộ thông tin vừa nhập kèm theo giá sau khi đã được giảm giá
+        //( Số tiền phải trả  = giá loại dịch vụ X số ngày X ( 1 – giảm giá/100 ) )
+        //(gán giá trị trực tiếp cho giá loại dịch vụ từ bảng giá bên trên)
+
+
+        const rateVilla = 500 ; //tien thue villa 500dollars/night
+        const rateHouse = 300 ; //tien thue house 300dollars/night
+        const rateRoom = 100 ; //tien thue room 100dollars/night
+        let totalPay = 0; //tong so tien phai tra
+
+        function haveToPay() {
+            let gettypeRoom = document.getElementById('typeRoom').value; //loai phong
+            let getNumNight = parseInt(document.getElementById("numNight").value) ; //so ngay o //bitnh thuong
+            let getDiscount = parseInt(document.getElementById("discount").value) /100  ; //discount
+
+            switch (gettypeRoom){
+                case 'House':
+                    totalPay = rateHouse * getNumNight * ( 1 - getDiscount );
+                    break;
+                case 'Villa':
+                    totalPay = rateVilla * getNumNight * ( 1 - getDiscount );
+                    break;
+                case 'Room':
+                    totalPay = rateRoom * getNumNight * ( 1 - getDiscount );
+                    break;
+            }
+            document.getElementById("hienthi").innerHTML = "Total Amount: " + totalPay + "$ for " + gettypeRoom + " in " +getNumNight + " night(s)";
+
+            //hien thi tat ca thong tin user da nhap
+            document.getElementById("hienthiThongTin").innerHTML =
+                "Hello Mr./Ms. " + document.getElementById('fullName').value + "<br/>"
+                + "Identify Number is " + document.getElementById('idNumber').value
+                + " and date of birth is " + document.getElementById('dateOfBirth').value
+                + ". Your email: " + document.getElementById('email').value
+                + " and address is " + document.getElementById('address').value + "<br/>";
+
+        }
+
+        // REQUIREMENT 2
+
+
+    </script>
+
+</body>
+</html>

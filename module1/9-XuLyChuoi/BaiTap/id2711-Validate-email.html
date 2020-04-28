@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*Viết phương thức để kiểm tra tính hợp lệ của một email.
+        Một email hợp lệ cần đạt các yêu cầu sau:
+        Bắt đầu bằng một ký tự
+        Không chứa các ký tự đặc biệt
+        Có một ký tự @ ngăn cách tên email và domain
+        Domain phải hợp lệ*/
+        //^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$;
+        function isValidEmail(email) {
+            let patt = /^[a-zA-z0-9]+@[a-zA-z0-9]+(\.[a-zA-z]{2,3})$/;
+            if(patt.test(email)){
+                alert( email + ": Valid Email");
+            } else{
+                alert(email + ": Invalid email");
+            }
+        }
+        isValidEmail('@#abc@gmail.com');
+        isValidEmail('hothaodn@gmail.com');
+        isValidEmail('hothaodngmail.com');
+        isValidEmail('@gmail.com');
+        isValidEmail('hothaodn@gmail.cc');
+        isValidEmail('6@6.net');
+        isValidEmail('6@cc.66');
+        isValidEmail('6aa@a.6');
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MY PHONE</title>
+</head>
+<body style="text-align: center; color: royalblue">
+    <!--NOKIA-->
+    <h1>NOKIA</h1>
+    <h1><b><span id="name"></span></b></h1>
+    <button onclick="Nokia.turnOnOff()" >ON/OFF</button><span id="status">OFF</span> <br/>
+    <button onclick="Nokia.chargePin()" >Charge pin</button><br/>
+    ||||||Pin status||||||<span id="pinStatus" ></span>||||||
+
+    <br/><br/><textarea id="screen" rows="15" cols="30" placeholder="Phone Display Screen" ></textarea>
+
+    <h3>Messages</h3>
+        <button onclick="Nokia.makeNewMsg()">Make New Msg</button>
+        <button onclick="Nokia.seeInbox()">Inbox</button>
+        <button onclick="Nokia.seeSentMsg()">Sent Msg</button>
+        <button onclick="Nokia.seeDraftMsg()" >Draft Msg</button>
+
+        <br/><br/><textarea id="typing" oninput="Nokia.displayMsgTyping()" rows="1" cols="40"  placeholder="Nokia & iPhone type msg here..." ></textarea>
+        <br/><button onclick="Nokia.sendMsg()">Send msg to to iPhone</button>
+        <button onclick="Nokia.saveDraftMsg()" >Save</button>
+        <button onclick="iPhone.sendMsg()">Send msg to Nokia</button><br/><br/>
+
+        change to iPhone <button onclick="calliPhone()">check inbox iPHONE</button>
+
+
+    <script>
+
+        let Mobile = function(){
+            this.inbox = [];
+            this.sentMsgBox = [];
+            this.draftMsgBox = [];
+
+            this.text = document.getElementById("typing");
+            this.screen = document.getElementById("screen");
+            this.pinStatus = 100;
+            this.connectOtherPhone = function (otherPhone) {
+                this.otherPhone = otherPhone;
+            };
+            this.count = 0;
+            this.turnOnOff = function() {
+                this.count++;
+                if ( this.count % 2 !== 0){
+                    document.getElementById("status").innerHTML = "ON";
+                    this.screen.innerHTML = new Date() + "\n\nPhone is ready";
+                    this.text.value = "";
+                    document.getElementById("pinStatus").innerHTML = this.pinStatus-- + "%";
+                } else{
+                    this.screen.innerHTML = "";
+                    document.getElementById("status").innerHTML = "OFF";
+                    text.value = "";
+                }
+                return this.count;
+            };
+
+            this.chargePin = function () {
+                if ( this.pinStatus < 100 ){
+                    this.pinStatus++;
+                    document.getElementById("pinStatus").innerHTML = this.pinStatus + "%";
+                    this.screen.innerHTML = "Charging...";
+                } else if ( this.pinStatus === 100){
+                    this.screen.innerHTML = "Battery full";
+                }
+            };
+            //========================= MESSAGE =========================
+
+            this.makeNewMsg = function () {
+                if ( this.count % 2 !== 0 && this.pinStatus >= 90 ){
+                    this.screen.innerHTML = "" ;
+                    this.text.value = "";
+                    document.getElementById("pinStatus").innerHTML = this.pinStatus-- + "%";
+                }
+                this.alertLowBattery();
+            };
+            this.displayMsgTyping = function () {
+                if ( this.count % 2 !== 0 && this.pinStatus >= 90 ){
+                    this.screen.innerHTML = this.text.value ;
+                }
+                this.alertLowBattery();
+            };
+            this.sendMsg = function () {
+                if ( this.count % 2 !== 0 && this.pinStatus >= 90 ){
+                    this.sentMsgBox.push(this.text.value);
+                    this.otherPhone.inbox.push(this.text.value);
+                    this.screen.innerHTML = "";
+                    this.text.value = "";
+                    document.getElementById("pinStatus").innerHTML = this.pinStatus-- + "%";
+                }
+                this.alertLowBattery();
+            };
+            this.saveDraftMsg = function () {
+                if ( this.count % 2 !== 0 && this.pinStatus >= 90 ){
+                    this.draftMsgBox.push(this.text.value);
+                    this.screen.innerHTML = "";
+                    this.text.value = "";
+                    document.getElementById("pinStatus").innerHTML = this.pinStatus-- + "%";
+                }
+                this.alertLowBattery();
+            };
+            //xem inbox
+            this.seeInbox = function () {
+                if ( this.count % 2 !== 0 && this.pinStatus >= 90 ){
+                    this.screen.innerHTML = this.inbox.join("\n");
+                    document.getElementById("pinStatus").innerHTML = this.pinStatus-- + "%";
+                }
+                this.alertLowBattery();
+            };
+            //xem tin nhắn đã gửi
+            this.seeSentMsg = function () {
+                if ( this.count % 2 !== 0 && this.pinStatus >= 90 ){
+                    this.screen.innerHTML = this.sentMsgBox.join("\n");
+                    document.getElementById("pinStatus").innerHTML = this.pinStatus-- + "%";
+                }
+                this.alertLowBattery();
+            };
+            //xem tin nhắn nháp đã lưu
+            this.seeDraftMsg = function () {
+                if ( this.count % 2 !== 0 && this.pinStatus >= 90 ){
+                    this.screen.innerHTML = this.draftMsgBox.join("\n");
+                    document.getElementById("pinStatus").innerHTML = this.pinStatus-- + "%";
+                }
+                this.alertLowBattery();
+            };
+
+            this.alertLowBattery = function () {
+                if ( this.pinStatus < 90 ){
+                    this.screen.innerHTML = "Low battery!!!"
+                }
+            }
+        };
+
+        let Nokia = new Mobile('NOKIA cục gạch');
+        let iPhone = new Mobile("iPhone hi");
+
+        Nokia.connectOtherPhone(iPhone);
+        iPhone.connectOtherPhone(Nokia);
+
+        Nokia.inbox = ["good morning","What are you doing?"];
+        Nokia.sentMsgBox = ["hello","hi","how are you?"];
+        Nokia.draftMsgBox = ["i'm playing game"];
+        //Nokia.test();
+
+        iPhone.otherPhone.inbox.push("i sent this from iPhone ");
+        iPhone.inbox = ["this is iphone"];
+        iPhone.draftMsgBox = ["i'm playing game"];
+        function calliPhone(){
+            alert ( "Inbox iPhone: " + iPhone.inbox.join("\n") );
+            alert ( "Sentbox iPhone: " + iPhone.sentMsgBox.join("\n") );
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic tac toe</title>
+</head>
+<body style="text-align: center">
+    <button onclick="start()"> Click here to start CARO GAME </button> <br/>
+
+    Tọa độ ô cần đánh: Hàng ngang <input type="number" id="hangNgang" /> Hàng dọc <input type="number" id="hangDoc" /><br/>
+
+    <button onclick="playGame()"> Play X O </button>
+    <button onclick="undo()"> Undo </button> <br/>
+    <h1 id="hienThiBanCo" style="color: green"></h1>
+
+    <script>
+        let banCoCaro = [
+            [ " 0 " , '1' , '2' , '3' , '4', '5' ],
+            [ " 1 " , '_' , '_' , '_' , '_' , '_' ],
+            [ " 2 " , '_' , '_' , '_' , '_' , '_' ],
+            [ " 3 " , '_' , '_' , '_' , '_' , '_' ],
+            [ " 4 " , '_' , '_' , '_' , '_' , '_' ],
+            [ " 5 " , '_' , '_' , '_' , '_' , '_' ],
+        ];
+
+        let hangDoc = document.getElementById("hangNgang");
+        let hangNgang = document.getElementById("hangDoc");
+
+        function start() {
+            document.getElementById("hienThiBanCo").innerHTML = banCoCaro.join("<br/>");
+        }
+
+        let count = 0;
+        function playGame() {
+            if (count % 2 === 0) {
+                banCoCaro[parseInt(hangNgang.value)][parseInt(hangDoc.value)] = "x";
+            } else {
+                banCoCaro[parseInt(hangNgang.value)][parseInt(hangDoc.value)] = "o";
+            }
+            count++;
+            document.getElementById("hienThiBanCo").innerHTML = banCoCaro.join("<br/>");
+            checkWinner();
+        }
+
+        function undo() {
+            banCoCaro[parseInt(hangNgang.value)][parseInt(hangDoc.value)] = "_";
+            document.getElementById("hienThiBanCo").innerHTML = banCoCaro.join("<br/>");
+        }
+
+        function checkWinner() {
+            for (let a = 1; a < banCoCaro.length; a++) {
+                for (let b = 1; b < banCoCaro[a].length; b++) {
+                    if (banCoCaro[a][b] === "x" && banCoCaro[a][b + 1] === "x" && banCoCaro[a][b + 2] === "x") {
+                        alert("Bravo! Người chơi X thắng !!");
+                    } else if (banCoCaro[a][b] === "o" && banCoCaro[a][b + 1] === "o" && banCoCaro[a][b + 2] === "o") {
+                        alert("Bravo! Người chơi O thắng !!");
+
+                    } else if (banCoCaro[a][b] === "x" && banCoCaro[a + 1][b] === "x" && banCoCaro[a + 2][b] === "x") {
+                        alert("Bravo! Người chơi X thắng !!");
+                    } else if (banCoCaro[a][b] === "o" && banCoCaro[a + 1][b] === "o" && banCoCaro[a + 2][b] === "o") {
+                        alert("Bravo! Người chơi O thắng !!");
+
+                    } else if (banCoCaro[a][b] === "x" && banCoCaro[a + 1][b + 1] === "x" && banCoCaro[a + 2][b + 2] === "x") {
+                        alert("Bravo! Người chơi X thắng !!");
+                    } else if (banCoCaro[a][b] === "o" && banCoCaro[a + 1][b + 1] === "o" && banCoCaro[a + 2][b + 2] === "o") {
+                        alert("Bravo! Người chơi O thắng !!");
+
+                    } else if (banCoCaro[a][b] === "x" && banCoCaro[a - 1][b + 1] === "x" && banCoCaro[a - 2][b + 2] === "x") {
+                        alert("Bravo! Người chơi X thắng !!");
+                    } else if (banCoCaro[a][b] === "o" && banCoCaro[a - 1][b + 1] === "o" && banCoCaro[a - 2][b + 2] === "o") {
+                        alert("Bravo! Người chơi O thắng !!");
+                    }
+                }
+            }
+        }
+
+</script>
+
+</body>
+</html>

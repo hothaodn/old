@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Luyện tập với toán tử</title>
+</head>
+<body>
+    <h2>Bài 1</h2>
+    Bài 1: Viết chương trình nhập vào giá trị cho a và b. Tính tổng a và b, nếu tổng nhỏ hơn 4,
+    hiển thị chuỗi Below, ngược lại hiển thị Over. Lưu ý sử dụng toán tử ? :
+    <br/>
+    Nhập 2 số:
+    <input type="number" id="so1" />
+    <input type="number" id="so2" />
+    <button type="button" onclick="tinhtong()">Tính tổng</button>
+    <br/>
+    Kết quả: <p id="ketqua"></p>
+    <hr/>
+
+
+
+    <script>
+        //Bài 2: Viết chương trình nhập vào giá trị cho chuỗi message.
+        /*
+        let job = prompt("Đây là bài tập 2: Bạn là Employee hay Director?");
+        let hienthi = (job==="Employee")? "Hello!" : (job==="Director")? : "Greetings" : (job==="")? : "No login" : "";
+        alert(hienthi);
+         */
+
+        let job = prompt("Đây là bài tập 2: Bạn là Employee hay Director?");
+        if (job =="Employee"){
+            alert("Hello!");
+        } else if (job =="Director") {
+            alert("Greetings");
+        } else if (job =="") {
+            alert("No login");
+        } else{
+            alert("");
+        }
+
+
+
+        //Bài 1:
+        let x=parseFloat(prompt("Nhập a:"));
+        let y=parseFloat(prompt("Nhập b:"));
+        let result=(x+y>4)? "Over":"Below";
+        alert (result);
+
+        //cach 2 call function
+        function tinhtong() {
+            var a = parseFloat(document.getElementById('so1').value);
+            var b = parseFloat(document.getElementById('so2').value);
+            var c=a+b;
+            if(c<4){
+                document.getElementById('ketqua').innerHTML="Kết quả là: " + c+ " Below 4";
+            } else {
+                document.getElementById('ketqua').innerHTML ="Kết quả là: " + c+" Over 4";
+            }
+        }
+
+    </script>
+</body>
+</html>

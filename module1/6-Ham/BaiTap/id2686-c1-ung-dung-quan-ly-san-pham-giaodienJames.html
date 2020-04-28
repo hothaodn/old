@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fruits Store</title>
+    <style> body {
+            background-image: url('https://isorepublic.com/wp-content/uploads/2018/11/isorepublic-fruit-background-1-1100x733.jpg');no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover; background-size: cover;
+    } </style>
+</head>
+<body>
+        <h1 style="color:darkred" >_ PRODUCT MANAGERMENT _</h1>
+        <h3>Add New Product</h3> <input type="text" id="name" placeholder="New Product">
+            <button onclick="addProductToList()" >Add</button><br/>
+
+        <h3>Display All Products</h3>
+            <button onclick="displayProductList()" >Click to show</button>
+        <div id="display" ></div>
+
+        <script>
+        let listProducts = ["Apple", "Orange", "Mango","Grape", "Banana", "Kiwi", "Strawberry"];
+        let priceProducts = [ 1, 2, 5, 10, 6, 15, 23];
+        let name;
+        let price;
+
+        //hiển thị sản phẩm
+        function displayProductList() {
+            let display = "Code___Name_________________Price" + "<br/>";
+            for ( let i = 0; i < listProducts.length; i++){
+                 display += (i+1) + "______" + listProducts[i] + "_________________" + priceProducts[i] + "$_________________"
+                 + "<button onclick='editProductInList(" + i + ")' >Edit</button>" +
+                     "<button onclick='deleteProductInList(" + i + ")' >Delete</button> <br/><br/>";
+            }
+            document.getElementById("display").innerHTML = display;
+        }
+        //thêm sản phẩm vào list
+        function addProductToList() {
+            name = document.getElementById("name").value;
+            price = parseFloat(prompt("Give price of new product:"));
+            if ( checkValue() ){
+                listProducts.push(name);
+                priceProducts.push(price);
+            }
+            displayProductList();
+        }
+        //edit sản phẩm trong list
+        function editProductInList(a) {
+            a = parseInt(a);
+            name = prompt("Give name of new product:");
+            price = parseFloat(prompt("Give price of new product:"));
+            if ( checkValue() ){
+                listProducts[a] = name;
+                priceProducts[a] = price;
+            }
+            displayProductList();
+        }
+        //xóa sản phẩm trong list
+        function deleteProductInList(b) {
+            for ( let i = b; i < listProducts.length; i++){
+                listProducts[i] = listProducts[i+1];
+            }
+            listProducts.pop();
+            displayProductList();
+        }
+         // kiểm tra dữ liệu hợp lệ
+        function checkValue() {
+            if (name !== "" && name !== null && isNaN(name) === true && Number.isNaN(price) === false) {
+                return true;
+            } else {
+                alert("Invalid Value. Please do again");
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fruits Store</title>
+    <style>
+        body {
+            text-align: right;
+            background-image: url('https://previews.123rf.com/images/belchonock/belchonock1410/belchonock141010004/32889856-fresh-organic-fruits-and-vegetables-on-wooden-background.jpg');        no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover; background-size: cover;
+        }
+    </style>
+</head>
+<body>
+        <h1 style="color:darkred" >_ PRODUCT MANAGERMENT _</h1>
+        <button onclick="displayProductList()" >Dislay Product List</button>
+        <button onclick="addProductToList()" >Add New Product</button>
+        <button onclick="editProductInList()" >Edit Product List</button>
+        <button onclick="deleteProductInList()" >Delete Product</button> <br/><br/>
+        <div id="display" ></div>
+
+        <script>
+        /* [*Bài tập] Ứng dụng quản lý sản phẩm sử dụng hàm</h2>
+        <pre>Ứng dụng quản lý sản phẩm có các chức năng sau:
+            Hiển thị danh sách sản phẩm
+        Có thể thêm một sản phẩm mới vào danh sách
+        Có thể sửa tên của sản phẩm trong danh sách
+        Có thể xoá một sản phẩm khỏi danh sách</pre> */
+
+        let listProducts = ["Apple", "Orange", "Mango","Grape", "Banana", "Kiwi", "Strawberry"];
+        let priceProducts = [ 1, 2, 5, 10, 6, 15, 23];
+        let name;
+        let price;
+
+        //hiển thị sản phẩm
+        function displayProductList() {
+            let display = "Code__Name____________________________Price";
+            for ( let i = 0; i < listProducts.length; i++){
+                 display += "<br/>" + (i+1) + "--- " + listProducts[i] + "______________________________" + priceProducts[i] + "$<br/>";
+            }
+            document.getElementById("display").innerHTML = display;
+        }
+        //thêm sản phẩm vào list
+        function addProductToList() {
+            name = prompt("Give name of new product:");
+            listProducts.push(name);
+            price = prompt("Give price of new product:");
+            priceProducts.push(price);
+            displayProductList();
+        }
+        //edit sản phẩm trong list
+        function editProductInList() {
+            let codeProduct = parseInt(prompt("Give product code:")) ;
+            if ( codeProduct > listProducts.length || codeProduct < 0 || Number.isInteger(codeProduct) === false ){
+                alert("Wrong product code. Please do again");
+                editProductInList();
+            }else {
+                name = prompt("Edit product name:");
+                price = prompt("Edit product price:");
+                listProducts[codeProduct-1] = name;
+                priceProducts[codeProduct-1] = price;
+                displayProductList();
+            }
+        }
+        //xóa sản phẩm trong list
+        function deleteProductInList() {
+            let codeProduct = parseInt(prompt("Give product code:")) ;
+            if ( codeProduct > listProducts.length || codeProduct < 0 || Number.isInteger(codeProduct) === false ){
+                alert("Wrong product code. Please do again");
+            }else {
+                for ( let i = (codeProduct-1); i < listProducts.length; i++){
+                    listProducts[i] = listProducts[i+1];
+                }
+                listProducts.pop();
+                displayProductList();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CURRENCY EXCHANGE</title>
+</head>
+<body>
+        <div style="text-align: center; border: 3px solid green">
+        <img src="https://traders-paradise.com/magazine/wp-content/uploads/2019/03/most-popular-currencies-for-trading-6-1.jpg" width="150px" description="money-exchange"/>
+        <h1 style="color:#28B463">CURRENCY EXCHANGE</h1>
+
+        Amount: <input type="number" id="sotien"/>
+            <br/>
+
+        From Currency:
+            <select id="tiente1">
+                <option>USD</option>
+                <option>VND</option>
+                <option>EUR</option>
+            </select>
+            <br/>
+        To Currency:
+            <select id="tiente2">
+                <option>VND</option>
+                <option>USD</option>
+                <option>EUR</option>
+            </select>
+
+            <br/>
+            <button type="button" onclick="chuyendoi()">Convert</button>
+
+        <h3>Result: </h3>
+            <p id="result" style="color:red"}></p></p>
+        </div>
+
+        <script>
+            const tigiausdvnd = 23000; //ty gia usd/VND
+            const tigiaeurvnd = 25500; //ty gia euro/VND
+            const tigiaeurusd = 1.09; // 1 euro = 1.09 usd
+            function chuyendoi() {
+                let x = parseInt(document.getElementById('sotien').value); //tien can quy doi
+                let dk1 = document.getElementById('tiente1').value;
+                let dk2 = document.getElementById('tiente2').value;
+
+                if (dk1 === "USD" && dk2 === "VND") {
+                    document.getElementById('result').innerHTML = x * tigiausdvnd;
+                    } else if (dk1 === "VND" && dk2 === "USD") {
+                        document.getElementById('result').innerHTML = x / tigiausdvnd;
+                    } else if (dk1 === "USD" && dk2 === "EUR") {
+                        document.getElementById('result').innerHTML = x / tigiaeurusd;
+                    } else if (dk1 === "EUR" && dk2 === "USD") {
+                        document.getElementById('result').innerHTML = x * tigiaeurusd;
+                    } else if (dk1 === "VND" && dk2 === "EUR") {
+                        document.getElementById('result').innerHTML = x / tigiaeurvnd;
+                    } else if (dk1 === "EUR" && dk2 === "VND") {
+                        document.getElementById('result').innerHTML = x * tigiaeurvnd;
+                } else
+                    document.getElementById('result').innerHTML = "Please choose different currencies";
+            }
+        </script>
+</body>
+</html>

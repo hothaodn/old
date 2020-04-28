@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Luyện tập với cấu trúc if...else...if</title>
+</head>
+<body>
+    Viết chương trình kiểm tra đăng nhập hệ thống của người dùng theo yêu cầu sau
+
+    Yêu cầu người dùng nhập tên từ bàn phím.
+
+    Nếu tên nhập vào là Admin thì yêu cầu nhập mật khẩu.
+    Nếu mật khẩu là TheMaster thì in ra chuỗi Welcome.
+    Nếu mật khẩu nhập vào là null in ra chuỗi Canceled.
+    Còn lại in ra chuỗi Wrong password.
+    Nếu tên nhập vào là null in ra chuỗi canceld.
+    Còn lại in ra chuỗi “I don’t know you"
+
+    <script>
+
+        //Cách 1:
+        var name1=prompt("Chương trình kiểm tra đăng nhập hệ thống của người dùng \nVui lòng nhập đúng tên và password đăng nhập");
+        if(name1=="Admin"){
+            var pw1=prompt("Vui lòng nhập password");
+            if(pw1=="TheMaster") {
+                alert("Welcome");
+            }else if (pw1 == null){
+                alert("Cancelled");
+            } else {
+                alert("Wrong password");
+            }
+        } else if(name1==null) {
+            alert("Cancelled");
+            } else {
+            alert("I don't know you");
+            }
+
+        // Cách 2:
+        var name=prompt("\(cách 2\)Chương trình kiểm tra đăng nhập hệ thống của người dùng \nVui lòng nhập đúng tên và password đăng nhập");
+        if(name=="Admin") {
+            var pw = prompt("Vui lòng nhập password");
+            switch (pw) {
+                case "TheMaster":
+                    alert("Welcome");
+                    break;
+                case "":
+                    alert("Cancelled");
+                    break;
+                default:
+                    alert("Wrong password");
+                    break;
+            }
+            if (name == "")
+                alert("Cancelled");
+        } else alert("I don't know you");
+
+
+    </script>
+
+</body>
+</html>

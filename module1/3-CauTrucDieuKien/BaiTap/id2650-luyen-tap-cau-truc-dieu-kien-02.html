@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title> Luyện tập cấu trúc điều kiện 02</title>
+    <style> h3{color:blue}; </style>
+</head>
+<body>
+    <h3>Bài 1: Chuyển từ độ C sang độ F.</h3>
+        Nhập số độ C:
+            <input type="number" id="do"/>
+            <button type="button" onclick="bai1()">Kiểm tra</button>
+            <p id="ketqua1"></p>
+
+    <h3>Bài 2: Chuyển từ mét sang feet:</h3>
+        Nhập số mét:
+            <input type="number" id="somet"/>
+            <button type="button" onclick="bai2()">Kiểm tra</button>
+            <p id="ketqua2"></p>
+
+    <h3>Bài 3: Tính diện tích hình vuông khi biết cạnh a.</h3>
+        Nhập độ dài cạnh a (m) của hình vuông:
+            <input type="number" id="canhhinhvuong"/>
+            <button type="button" onclick="bai3()">Kiểm tra</button>
+            <p id="ketqua3"></p>
+
+    <h3>Bài 4: Tính diện tích hình chữ nhật khi biết 02 cạnh a, b.</h3>
+        Nhập độ dài cạnh a và b của hình chữ nhật:
+            <input type="number" id="canhchunhata"/>
+            <input type="number" id="canhchunhatb"/>
+            <button type="button" onclick="bai4()">Kiểm tra</button>
+            <p id="ketqua4"></p>
+
+    <h3>Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.</h3>
+        Nhập độ dài cạnh a và b của hình tam giác vuông:
+            <input type="number" id="canhtamgiaca"/>
+            <input type="number" id="canhtamgiacb"/>
+            <button type="button" onclick="bai5()">Kiểm tra</button>
+            <p id="ketqua5"></p>
+
+    <h3>Bài 6: Giải phương trình bậc 1 (ax + b = c)</h3>
+        Nhập số a:
+            <input type="number" id="nhapA"/>
+        Nhập số b:
+            <input type="number" id="nhapB"/>
+        Nhập số c:
+            <input type="number" id="nhapC"/>
+            <button type="button" onclick="bai6()">Kiểm tra</button>
+            <p id="ketqua6"></p>
+
+    <h3>Bài 7: Giải phương trình bậc 2.</h3>
+        ax2 + bx + c = 0
+        Nhập số a:
+            <input type="number" id="nhapA1"/>
+        Nhập số b:
+            <input type="number" id="nhapB1"/>
+        Nhập số c:
+            <input type="number" id="nhapC1"/>
+            <button type="button" onclick="bai7()">Kiểm tra</button>
+            <p id="ketqua7"></p>
+
+    <h3>Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lớn hơn 0.</h3>
+        Nhập số tuổi:
+    <input type="number" id="sotuoi"/>
+            <button type="button" onclick="bai8()">Kiểm tra</button>
+            <p id="ketqua8"></p>
+
+    <h3>Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. Điều kiện để a,b,c là cạnh của một tam giác là:</h3>
+        Nhập độ dài 3 cạnh a và b của hình tam giác:
+            <input type="number" id="sothuc1"/>
+            <input type="number" id="sothuc2"/>
+            <input type="number" id="sothuc3"/>
+            <button type="button" onclick="bai9()">Kiểm tra</button>
+            <p id="ketqua9"></p>
+
+
+    <h3>Bài 10: Viết chương trình tính giá điện.</h3>
+        Nhập số kWh điện đã dùng:
+            <input type="number" id="soChuDien"/>
+            <button type="button" onclick="bai10()">Kiểm tra</button>
+            <p id="ketqua10"></p>
+
+    <h3>Bài 11: Viết chương trình tính thuế thu nhập cá nhân.</h3>
+        Nhập mức thu nhập cá nhân phải đóng thuế thu nhập (VND):
+            <input type="number" id="sothunhap"/><br/>
+        Nhập mức thuế phải đóng thu nhập cá nhân (%):
+            <input type="number" id="mucthue"/><br/>
+            <button type="button" onclick="bai11()">Kiểm tra</button>
+            <p id="ketqua11"></p>
+
+
+    <h3>Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi suất hàng tháng.</h3>
+            <p id="ketqua12"></p>
+        Nhập số tiền gửi ban đầu:
+            <input type="number" id="sotienbandau"/><br/>
+        Nhập số tháng cho vay:
+            <input type="number" id="sothangchovay"/><br/>
+        Nhập lãi suất (%) hàng tháng:
+            <input type="number" id="laisuatthang"/>
+            <button type="button" onclick="bai12()">Kiểm tra</button>
+
+
+    <script>
+        //Bài 1: Chuyển từ độ C sang độ F. °C  x  9/5 + 32 = °F
+        function bai1() {
+            let doC = parseFloat(document.getElementById("do").value);
+            let doF = doC * (9/5) + 32;
+            document.getElementById("ketqua1").innerHTML = doC + " độ C bằng " + doF + " độ F";
+        }
+
+        //Bài 2: Chuyển từ mét sang feet: ft =m * 3.2808
+        function bai2() {
+            let met = parseFloat(document.getElementById("somet").value);
+            let feet = met * 3.2808;
+            document.getElementById("ketqua2").innerHTML = met + " met = " + feet + " feet";
+        }
+
+        //Bài 3: Tính diện tích hình vuông khi biết cạnh a.
+        function bai3() {
+            let canhhinhvuong1 = parseFloat(document.getElementById("canhhinhvuong").value);
+            let dientichhinhvuong = canhhinhvuong1 * canhhinhvuong1;
+            document.getElementById("ketqua3").innerHTML = "Diện tích hình vuông là: " + dientichhinhvuong + " m2 ";
+        }
+
+
+        //Bài 4: Tính diện tích hình chữ nhật khi biết 02 cạnh a, b.
+        function bai4() {
+            let cna = parseFloat(document.getElementById("canhchunhata").value);
+            let cnb = parseFloat(document.getElementById("canhchunhatb").value);
+            let dientichchunhat = cna * cnb;
+            document.getElementById("ketqua4").innerHTML = "Diện tích hình chữ nhật là: " + dientichchunhat + " m2 ";
+        }
+
+        //Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.
+        function bai5() {
+            let tga = parseFloat(document.getElementById("canhtamgiaca").value);
+            let tgb = parseFloat(document.getElementById("canhtamgiacb").value);
+            let dientichtgvuong = (tga * tgb) / 2;
+            document.getElementById("ketqua5").innerHTML = "Diện tích hình tam giác vuông là: " + dientichtgvuong + " m2 ";
+        }
+
+        //Bài 6: Giải phương trình bậc 1. ax + b = c
+        function bai6() {
+            let thamsoA = parseFloat(document.getElementById("nhapA").value);
+            let thamsoB = parseFloat(document.getElementById("nhapB").value);
+            let thamsoC = parseFloat(document.getElementById("nhapC").value);
+            let x = ( thamsoC - thamsoB ) / thamsoA;
+            document.getElementById("ketqua6").innerHTML = "Phương trình " + thamsoA + "X" + " + " + thamsoB + " = " + thamsoC + " có nghiệm X = " + x;
+        }
+
+
+        //Bài 7: Giải phương trình bậc 2.
+        function bai7() {
+            let thamsoA1 = parseFloat(document.getElementById("nhapA1").value);
+            let thamsoB1 = parseFloat(document.getElementById("nhapB1").value);
+            let thamsoC1 = parseFloat(document.getElementById("nhapC1").value);
+            let delta = (thamsoB1 * thamsoB1) - 4 * (thamsoA1 * thamsoC1);
+            let nghiemPt, nghiemPt1, nghiemPt2;
+
+            //xet 2 truong hop a khac 0 va a=0
+            if (thamsoA1 !== 0 ) {
+                if (delta < 0) {
+                    document.getElementById("ketqua7").innerHTML = "Phương trình bậc 2 vô nghiệm";
+                } else if (delta === 0) {
+                    nghiemPt = -thamsoB1 / (2 * thamsoA1);
+                    document.getElementById("ketqua7").innerHTML = "Phương trình bậc 2 có nghiệm kép X1 = X2 là " + nghiemPt;
+                } else if (delta > 0) {
+                    nghiemPt1 = (-thamsoB1 + Math.sqrt(delta)) / (2 * +thamsoA1);
+                    nghiemPt2 = (-thamsoB1 - Math.sqrt(delta)) / (2 * +thamsoA1);
+                    document.getElementById("ketqua7").innerHTML = "Phương trình bậc 2 có nghiệm phân biệt X1, X2 là " + nghiemPt1 + " và " + nghiemPt2;
+                }
+            } else {
+                if (thamsoA1 === 0 ){
+                    nghiemPt = -thamsoC1 / thamsoB1;
+                    document.getElementById("ketqua7").innerHTML = "Phương trình bậc 1 có nghiệm X = " + nghiemPt;
+                }
+            }
+        }
+
+
+        //Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không.
+        // Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0.
+        function bai8() {
+            let tuoi = parseFloat(document.getElementById("sotuoi").value);
+
+            if (Number.isInteger(tuoi) == true) {
+                if (tuoi > 0 && tuoi < 120)
+                    document.getElementById("ketqua8").innerHTML = tuoi + " là số tuổi của một người";
+                else
+                    document.getElementById("ketqua8").innerHTML = tuoi + " không phải số tuổi của một người";
+            } else
+                document.getElementById("ketqua8").innerHTML = tuoi + " không phải số tuổi của một người";
+        }
+
+        //Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác.
+        // Điều kiện để a,b,c là cạnh của một tam giác là: a,b,c > 0
+        //a + b > c
+        //b + c > a
+        //a + c > b
+        function bai9() {
+            let a = parseFloat(document.getElementById("sothuc1").value);
+            let b = parseFloat(document.getElementById("sothuc2").value);
+            let c = parseFloat(document.getElementById("sothuc3").value);
+            let dk1 = (a + b > c);
+            let dk2 = (b + c > a);
+            let dk3 = (a + c > b);
+
+            if ( a > 0 && b > 0 && c > 0 ) {
+                if ( dk1 === true && dk2 === true && dk3 === true)
+                    document.getElementById("ketqua9").innerHTML = "3 số này là cạnh của một tam giác" ;
+                else
+                    document.getElementById("ketqua9").innerHTML = "3 số này không phải là cạnh của một tam giác";
+            } else
+                document.getElementById("ketqua9").innerHTML = "3 số này không phải là cạnh của một tam giác" ;
+        }
+
+        //Bài 10: Viết chương trình tính giá điện.
+        const giaBac1 = 1678; //Bậc 1: Cho kWh từ 0 - 50
+        const giaBac2 = 1734; //Bậc 2: Cho kWh từ 51 - 100
+        const giaBac3 = 2014; //Bậc 3: Cho kWh từ 101 - 200
+        const giaBac4 = 2536; //Bậc 4: Cho kWh từ 201 - 300
+        const giaBac5 = 2834; //Bậc 5: Cho kWh từ 301 - 400
+        const giaBac6 = 2927; //Bậc 6: Cho kWh từ 401 trở lên
+        let tienDien;
+
+        function bai10() {
+            let getSoChuDien = parseInt(document.getElementById("soChuDien").value);
+
+            if ( getSoChuDien <= 50) {
+                tienDien = getSoChuDien * giaBac1;
+                } else if (getSoChuDien <= 100) {
+                tienDien = 50 * giaBac1 + (getSoChuDien - 50) * giaBac2;
+                }else if (getSoChuDien <= 200) {
+                tienDien = 50 * giaBac1 + 50 * giaBac2 + (getSoChuDien - 100) * giaBac3;
+                }else if (getSoChuDien <= 300) {
+                tienDien = 50 * giaBac1 + 50 * giaBac2 + 100 * giaBac3 + (getSoChuDien - 200) * giaBac4;
+                }else if (getSoChuDien <= 400){
+                    tienDien = 50 * giaBac1 + 50 * giaBac2 + 100 * giaBac3 + 100 * giaBac4 + (getSoChuDien - 300) * giaBac5;
+            } else {
+                tienDien = 50 * giaBac1 + 50 * giaBac2 + 100 * giaBac3 + 100 * giaBac4 + 100 * giaBac5 + +(getSoChuDien - 400) * giaBac6;
+                }
+            document.getElementById("ketqua10").innerHTML = "Tổng tiền điện là: " + tienDien + " (đồng/kWh) áp dụng theo bảng giá ĐIỆN SINH HOẠT";
+        }
+
+        ///Bài 11: Viết chương trình tính thuế thu nhập cá nhân.
+        function bai11() {
+            let thunhap = parseFloat(document.getElementById("sothunhap").value);
+            let thue = parseFloat(document.getElementById("mucthue").value) / 100;
+            thuetn = thunhap * thue;
+
+            if (thunhap < 9000000)
+                document.getElementById("ketqua11").innerHTML = "Không đủ điều kiện đóng thuế TNCN";
+            else
+                document.getElementById("ketqua11").innerHTML="Thuế TNCN: " + thuetn;
+        }
+
+        //Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, số tháng cho vay và lãi suất hàng tháng.
+        function bai12() {
+            let tienGoc = parseFloat(document.getElementById("sotienbandau").value);
+            let thang = parseFloat(document.getElementById("sothangchovay").value);
+            let laisuat = parseFloat(document.getElementById("laisuatthang").value) / 100 ; // lãi suất theo tháng
+            let tienLai = ( tienGoc * ( 1+ (laisuat*12))**(thang/12) ) - tienGoc;
+            document.getElementById("ketqua12").innerHTML = tienGoc + " lãi được " + tienLai + " sau " + thang + " tháng với lãi suất tháng " + laisuat;
+        }
+
+    </script>
+</body>
+</html>

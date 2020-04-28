@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MENU Req 6</title>
+    <style>
+        table, th, td { color:black; font-weight: bold;border: 1px solid orangered;border-collapse: collapse;}
+        fieldset { text-align: center; border-style: dashed; background-color: white; opacity: 0.8; margin: 30px; }
+        body {
+            background-image: url("https://furamavillasdanang.com/wp-content/uploads/2016/10/Furama_Villas_Central_Pool.jpg");no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover; background-size: cover;
+            text-align: center;
+        }
+    </style>
+    <script src="req-6-task-1-part-1-2-3.js" type="text/javascript"></script>
+    <script src="req-6-task-1-part-4.js" type="text/javascript"></script>
+    <script src="req-6-task-1-part-5.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <img src="http://www.dongkhoitravel.com.vn/upload/product/furamresort-3272.png" width="150px" />
+    <fieldset >
+        <legend><h1 style="color:orangered">GUEST MANAGEMENT</h1></legend>
+        <button onclick="displaymenuFormAddCustomer()"><b>Add New Customer</b><img src="https://icons.iconarchive.com/icons/aha-soft/people/256/user-group-icon.png" width="40"  /></button>
+        <button onclick="displayCustomer()"><b>Display Information Customer</b><img src="https://www.shareicon.net/data/256x256/2016/05/11/763157_list_512x512.png" width="40"  /></button>
+        <button onclick="totalPay()"><b>Display Total of Payment</b><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-11/72/Coin-us-dollar-icon.png" width="40"  /></button>
+        <button onclick="displaymenuFormEditCustomer()"><b>Edit Information Customer</b><img src="https://www.shareicon.net/data/256x256/2016/04/18/751387_edit_512x512.png" width="40"  /></button>
+        <button onclick="deleteCustomer()"><b>Delete Customer</b><img src="https://www.shareicon.net/data/256x256/2016/09/10/827820_delete_512x512.png" width="40"  /></button>
+        <button onclick="exitMenu()"><img src="https://cdn0.iconfinder.com/data/icons/material-design-11/64/69-128.png" width="40"  /></button><br/><br/>
+
+        <span id="menuFormAddCustomer" ></span>
+        <center><span id="displaylist" ></span></center>
+    </fieldset>
+</body>
+</html>

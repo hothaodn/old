@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Bài 5: Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.
+
+        let chuoi1 = prompt("Nhập chuỗi thứ 1 bao gồm chữ hoặc số: ").toString() ;
+        let chuoi2 = prompt("Nhập chuỗi thứ 2 bao gồm chữ hoặc số: ").toString() ;
+
+        function kiemTraGiongNhau() {
+            for ( let i = 0; i < chuoi1.length; i++ ){
+                if (chuoi1[i] !== chuoi2[i]){
+                    return false;
+                    break;
+                }
+            }
+        }
+
+        if ( chuoi1.length !== chuoi2.length ){
+            alert("Hai chuỗi KHÔNG giống nhau");
+        } else if ( chuoi1.length === chuoi2.length ){
+            if (kiemTraGiongNhau() !== false){
+                alert("Hai chuỗi GIỐNG nhau");
+            } else {
+                alert("Hai chuỗi KHÔNG giống nhau");
+            }
+        }
+
+
+</script>
+</body>
+</html>
